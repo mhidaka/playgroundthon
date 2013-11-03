@@ -4,7 +4,7 @@
     <Version>0.1.0</Version>
     <ProjectFile>textureBoat.xml</ProjectFile>
     <ProjectFileRelativeDir />
-    <SaveDate>2013-11-03T17:32:22</SaveDate>
+    <SaveDate>2013-11-03T19:42:02</SaveDate>
     <EditState>true</EditState>
     <ContainerScale>1</ContainerScale>
     <ContainerSnap>8</ContainerSnap>
@@ -75,19 +75,6 @@
       <IsFlipY>false</IsFlipY>
       <IsSwitchXY>false</IsSwitchXY>
       <ImgPathName>assets/images/character04_export.png</ImgPathName>
-      <ZOrder>0</ZOrder>
-    </TextureModel>
-    <TextureModel>
-      <Pos>
-        <X>0</X>
-        <Y>0</Y>
-      </Pos>
-      <Id>0</Id>
-      <Name>itemimage.png</Name>
-      <IsFlipX>false</IsFlipX>
-      <IsFlipY>false</IsFlipY>
-      <IsSwitchXY>false</IsSwitchXY>
-      <ImgPathName>itemimage.png</ImgPathName>
       <ZOrder>0</ZOrder>
     </TextureModel>
     <TextureModel>
@@ -244,6 +231,32 @@
       <IsFlipY>false</IsFlipY>
       <IsSwitchXY>false</IsSwitchXY>
       <ImgPathName>assets/images/button_disable.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>0</X>
+        <Y>0</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>itemimage.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>itemimage.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>392</X>
+        <Y>256</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>boss01.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/boss01.png</ImgPathName>
       <ZOrder>0</ZOrder>
     </TextureModel>
   </ArrayOfTextureModel>

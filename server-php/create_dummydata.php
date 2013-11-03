@@ -9,8 +9,8 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		$file_path = $this->room_dir."/0";
 		$fp = fopen($file_path, "w");
 		if ($fp) {
-			fwrite($fp, "owner"."\t"."hoge"."\n");
-			fwrite($fp, "user"."\t"."fuga"."\n");
+			fwrite($fp, "owner"."\t"."0"."\t"."hoge"."\n");
+			fwrite($fp, "user"."\t"."1"."\t"."fuga"."\n");
 			fclose($fp);
 		} else {
 			die("fopen err");
