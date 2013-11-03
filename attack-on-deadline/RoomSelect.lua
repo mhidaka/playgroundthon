@@ -13,10 +13,10 @@ function setup()
 		rootTbl = {}
 	end
 
-	roomsResult = nil -- ここにサーバから返ってきた bodyPayload が入る
+	serverResult = nil -- ここにサーバから返ってきた bodyPayload が入る
 	status = 0 -- まだサーバに何もリクエストしてないよ
 
-	shinchoku.api.getRooms(callbackGetRooms)
+	shinchoku.api.fetchRooms(callbackFetchRooms)
 
 	status = 1 -- サーバへのリクエスト送ったよ
 end
@@ -43,14 +43,14 @@ function leave()
 end
 
 -- サーバとの通信処理のコールバック
-function callbackGetRooms(connectionID, message, status, bodyPayload)
-	if not (message == NETAPIMSG_REQUEST_SUCCESS and status == 200) then
+function callbackFetchRooms(connectionID, message, status, bodyPayload)
+	if message ~= NETAPIMSG_REQUEST_SUCCESS or status ~= 200 then
 		status = -1 -- 通信エラーだよ
 		return
 	end
 
 	status = 2 -- サーバとの処理成功したよ
-	roomsResult = bodyPayload
+	serverResult = bodyPayload
 end
 
 -- TODO: エラー処理を書く
