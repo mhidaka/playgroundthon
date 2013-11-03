@@ -13,25 +13,12 @@ function setup()
 		rootTbl = {}
 	end
 
-<<<<<<< HEAD
-	FONT_load("MTLmr3m","asset://MTLmr3m.ttf")
-	pLabel = UI_Label 	(
-							nil, 			-- <parent pointer>, 
-							7000, 			-- <order>, 
-							64,100,		-- <x>, <y>,
-                            0xFF, 0x000000,	-- <alpha>, <rgb>, 
-							"MTLmr3m",	-- "<font name>",
-							32,				-- <font size>, 
-							"Welcome!(Room Select scene sample)"	-- "<text string>"
-						)
-=======
-	roomsResult = nil -- ここにサーバから返ってきた bodyPayload が入る
+	serverResult = nil -- ここにサーバから返ってきた bodyPayload が入る
 	status = 0 -- まだサーバに何もリクエストしてないよ
 
-	shinchoku.api.getRooms(callbackGetRooms)
+	shinchoku.api.fetchRooms(callbackFetchRooms)
 
 	status = 1 -- サーバへのリクエスト送ったよ
->>>>>>> 5224723dba2b707dd3c5a21dec7f1a92d847dd9e
 end
 
 function execute(deltaT)
@@ -56,14 +43,14 @@ function leave()
 end
 
 -- サーバとの通信処理のコールバック
-function callbackGetRooms(connectionID, message, status, bodyPayload)
-	if not (message == NETAPIMSG_REQUEST_SUCCESS and status == 200) then
+function callbackFetchRooms(connectionID, message, status, bodyPayload)
+	if message ~= NETAPIMSG_REQUEST_SUCCESS or status ~= 200 then
 		status = -1 -- 通信エラーだよ
 		return
 	end
 
 	status = 2 -- サーバとの処理成功したよ
-	roomsResult = bodyPayload
+	serverResult = bodyPayload
 end
 
 -- TODO: エラー処理を書く
