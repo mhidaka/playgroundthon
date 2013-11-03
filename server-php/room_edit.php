@@ -51,7 +51,20 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	        	for ($i = 0; $i < count($line); $i++) {
 				    $data = split("\t", trim($line[$i]));
 				    if ($data[0] == 'owner') {
-						$room_info['owner'] = $data[1];
+				    	$owner = array();
+				    	$owner['id'] = $data[1];
+				    	$owner['name'] = $data[2];
+						$room_info['owner'] = $owner;
+					    break;
+				    }
+				    if ($data[0] == 'user') {
+				    	if (isset($room_info['users'])) {
+					    	$room_info['users'] = array();
+				    	}
+				    	$user = array();
+				    	$user['id'] = $data[1];
+				    	$user['name'] = $data[2];
+						$room_info['users'][] = $user;
 					    break;
 				    }
 				}
@@ -65,11 +78,14 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		$room_list = $this->get_room_list();
 		$roomid = 0;
 		foreach($room_list as $key => $val) {
-			if ($username == $val['owner']) {
-				return $val['id'];
-			}
-			if ($roomid < $val['id']) {
-				$roomid = $val['id'];
+			if (isset($val['owner'])) {
+				$owner = $val['owner'];
+				if ($username == $owner['name']) {
+					return $owner['id'];
+				}
+				if ($roomid < $owner['id']) {
+					$roomid = $owner['id'];
+				}
 			}
 		}
 		return $roomid + 1;
@@ -149,12 +165,10 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	
 	// act:room_status
 	function room_status() {
-	
-		
 	}
 
 	// act:join_room
-	function room_status() {
+	function join_room() {
 		$roomId = $this->pPost['roomId'];
 		$userId = $this->pPost['userId'];
 		$room_list = $this->get_room_list();
@@ -165,7 +179,7 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 				break;
 			}
 		}
-		
+		$room_list = $this->get_room_list();
 		if (!$room_match) {
 			$this->err_msg = "roomId not found.";
 			return;
