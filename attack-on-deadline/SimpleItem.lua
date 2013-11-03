@@ -1,4 +1,3 @@
-include("asset://api.lua")
 
 function setup()
 
@@ -12,6 +11,13 @@ function setup()
 	shinchoku.api.fetchRooms(callback)
 
 	shinchoku.api.fetchRoomInfo(1, callback)
+
+	shinchoku.api.createRoom(callback)
+	shinchoku.api.joinRoom(1, callback)
+	shinchoku.api.engageStart(1, callback)
+
+	shinchoku.api.game.addUnit(1, callback)
+	shinchoku.api.game.fetchStageInfo(callback)
 
 	local x = 100
 	local y = 100

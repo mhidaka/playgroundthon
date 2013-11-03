@@ -10,6 +10,29 @@ function setup()
 	if not rootTbl then
 		rootTbl = {}
 	end
+
+--	FONT_load("AlexBrush","asset://AlexBrush-Regular-OTF.otf")
+	FONT_load("MTLmr3m","asset://MTLmr3m.ttf")
+	pLabel = UI_Label 	(
+							nil, 			-- <parent pointer>, 
+							7000, 			-- <order>, 
+							64,100,		-- <x>, <y>,
+                            0xFF, 0x000000,	-- <alpha>, <rgb>, 
+							"MTLmr3m",	-- "<font name>",
+							32,				-- <font size>, 
+							"Hello World!(login scene sample)"	-- "<text string>"
+						)
+
+-- user name input
+    pTB = UI_TextInput( nil, false, 	-- <parent pointer>, <password mode>,
+						100, 200,		-- <x>, <y>, 
+						300, 40, 		-- <width>, <height>,
+						"input UserName",	-- "<default text>"
+                        "onChangeCb",   -- [ , "<on-change-callback>", 
+						0, 				-- <widget-id>, 
+						20				-- <max-length>, <enable-chartype> ] )
+						)
+
 end
 
 function execute(deltaT)
