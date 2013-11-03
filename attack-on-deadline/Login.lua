@@ -33,10 +33,28 @@ function setup()
 						20				-- <max-length>, <enable-chartype> ] )
 						)
 
+	
+    TASK_StageOnly(pLabel)
+    TASK_StageOnly(pTB)
 end
+
+-- Callback for TextInput
+function onChangeCb(ptr, newStr, id)
+	syslog(string.format("callback - new string = %s", newStr))
+	local callback = function (connectionID, message, status, bodyPayload)
+		syslog("[API] " .. CONV_Lua2Json(bodyPayload))
+	end
+	shinchoku.api.login("Mr.shinchoku", callback)
+    
+-- next scene
+    sysLoad("asset://RoomSelect.lua")
+
+end
+
 
 function execute(deltaT)
 end
 
 function leave()
+    TASK_StageClear()
 end
