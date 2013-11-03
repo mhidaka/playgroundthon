@@ -33,7 +33,7 @@ function setup()
 
 	status = 1 -- サーバへのリクエスト送ったよ
     
-	TASK_StageOnly(pSceneLabel)
+	TASK_StageOnly(pSceneForm)
 end
 
 function execute(deltaT)
