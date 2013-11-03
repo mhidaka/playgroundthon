@@ -13,17 +13,19 @@ function setup()
 		rootTbl = {}
 	end
 
-	FONT_load("MTLmr3m","asset://MTLmr3m.ttf")
-	pSceneLabel = UI_Label 	(
-							nil, 			-- <parent pointer>, 
-							7000, 			-- <order>, 
-							64,100,		-- <x>, <y>,
-                            0xFF, 0x000000,	-- <alpha>, <rgb>, 
-							"MTLmr3m",	-- "<font name>",
-							32,				-- <font size>, 
-							"Welcome!(Room Select scene sample)"	-- "<text string>"
-						)
-	
+	local x = 0
+	local y = 0
+	local pForm = UI_Form(nil,	-- arg[1]:	親となるUIタスクのポインタ
+		7000,		-- arg[2]:	基準表示プライオリティ
+		x, y,		-- arg[3,4]:	表示位置
+		"asset://roomselect.json",	-- arg[5]:	composit jsonのパス
+		false		-- arg[6]:	排他フラグ
+	)
+	--[[
+		arg[6]:排他フラグ は、省略可能です。
+		省略した場合は false と同じ挙動になります。
+	]]
+
 	serverResult = nil -- ここにサーバから返ってきた bodyPayload が入る
 	status = 0 -- まだサーバに何もリクエストしてないよ
 
