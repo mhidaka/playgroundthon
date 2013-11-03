@@ -6,11 +6,11 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass {
 	protected $room_dir = "/tmp/shingeki/room";
 	
 	public function execute() {
-		$file_path = $this->room_dir."/2";
+		$file_path = $this->room_dir."/0";
 		$fp = fopen($file_path, "w");
 		if ($fp) {
 			fwrite($fp, "owner"."\t"."hoge"."\n");
-			fwrite($fp, "normal"."\t"."fuga"."\n");
+			fwrite($fp, "user"."\t"."fuga"."\n");
 			fclose($fp);
 		} else {
 			die("fopen err");

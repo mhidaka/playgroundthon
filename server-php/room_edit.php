@@ -6,7 +6,7 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	protected $shingeki_dir = "/tmp/shingeki";
 	protected $room_dir = "/tmp/shingeki/room";
 
-	function UserName2Id($userlist, $username) {
+	function username2Id($userlist, $username) {
 		foreach($userlist as $key => $val) {
 			if ($username == $val) {
 				return $key;
@@ -19,7 +19,7 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		return $this->shingeki_dir."/userlist";
 	}
 	
-	function getUserlist() {
+	function get_userlist() {
 		$userlist_file = $this->userlist_file_path();
 
     	$line = file($userlist_file);
@@ -33,14 +33,14 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	}
 	
 	function getId2Username($id) {
-		$userlist = $this->getUserlist();
+		$userlist = $this->get_userlist();
 		if (isset($userlist[$id])) {
 			return $userlist[$id];
 		}
 		return "";
 	}
 	
-	function getRoomlist() {
+	function get_room_list() {
 		$room_array = array();
 		$open_dir = opendir($this->room_dir);
 		while(false !== ($file_name = readdir($open_dir))){
@@ -61,8 +61,8 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		return $room_array;
 	}
 	
-	function getCreateRoomId($username) {
-		$room_array = $this->getRoomlist();
+	function get_create_roomId($username) {
+		$room_array = $this->get_room_list();
 		$roomid = 0;
 		foreach($room_array as $key => $val) {
 		echo "u: $username ".$val['owner']."\n";
@@ -76,12 +76,13 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		return $roomid + 1;
 	}
 
+	// act:login
 	function login() {
 		$room_dir = $this->room_dir;
 		$userlist_file = $this->userlist_file_path();
-		$userlist = $this->getUserlist($userlist_file);
+		$userlist = $this->get_userlist($userlist_file);
 		$username = $this->pPost['userName'];
-		$userid = $this->UserName2Id($userlist, $username);
+		$userid = $this->username2Id($userlist, $username);
 		if ($userid == -1) {
 			$userid = count($userlist);
 			$userlist[$userid] = $username;
@@ -103,17 +104,18 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 			}
 		}
 		$output = array();
-		$output['userId'] = intval($userid);
-		$output['userName'] = $username;
+		$output['id'] = intval($userid);
+		$output['name'] = $username;
 		print_r(json_encode($output));
 	}
 
+	// act:create_room
 	function create_room() {
 		$userid = $this->pPost['userId'];
 		$username = $this->getId2Username($userid);
 
 		$room_dir = $this->room_dir;
-		$roomid = $this->getCreateRoomId($username);
+		$roomid = $this->get_create_roomId($username);
 		$file_path = $this->room_dir."/".$roomid;
 		$fp = fopen($file_path, "w");
 		if ($fp) {
@@ -132,17 +134,23 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		print_r(json_encode($output));
 	}
 	
-	function roomList() {
+	// act:room_list
+	function room_list() {
 		$room_dir = $this->room_dir;
 		if (!file_exists($room_dir)) {
 			if (!mkdir($room_dir, 0755, true)) {
 				die("mkdir error.");
 			}
 		}
-		$room_array = $this->getRoomlist();
+		$room_array = $this->get_room_list();
 		$output = array();
 		$output['rooms'] = $room_array;
 		print_r(json_encode($output));
+	}
+	
+	// act:room_status
+	function room_status() {
+		
 	}
 
 	function parseInputData() {
@@ -155,7 +163,10 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 					$this->create_room();
 					break;
 				case "room_list":
-					$this->roomList();
+					$this->room_list();
+					break;
+				case "room_status":
+					$this->room_status();
 					break;
 				default:
 					$this->err_msg = "act not found.";
