@@ -202,7 +202,7 @@ function mockLoad()
 		local last = room.internal.lastUpdateAt
 
 		while last + 3000 < ENG_getNanoTime() do
-			mock.nextTick()
+			mock.nextTick(roomId)
 			last = last + 3000
 		end
 
