@@ -13,12 +13,25 @@ function setup()
 		rootTbl = {}
 	end
 
+	FONT_load("MTLmr3m","asset://MTLmr3m.ttf")
+	pSceneLabel = UI_Label 	(
+							nil, 			-- <parent pointer>, 
+							7000, 			-- <order>, 
+							64,100,		-- <x>, <y>,
+                            0xFF, 0x000000,	-- <alpha>, <rgb>, 
+							"MTLmr3m",	-- "<font name>",
+							32,				-- <font size>, 
+							"Welcome!(Room Select scene sample)"	-- "<text string>"
+						)
+	
 	serverResult = nil -- ここにサーバから返ってきた bodyPayload が入る
 	status = 0 -- まだサーバに何もリクエストしてないよ
 
 	shinchoku.api.fetchRooms(callbackFetchRooms)
 
 	status = 1 -- サーバへのリクエスト送ったよ
+    
+	TASK_StageOnly(pSceneLabel)
 end
 
 function execute(deltaT)
@@ -40,6 +53,7 @@ function execute(deltaT)
 end
 
 function leave()
+	TASK_StageClear()
 end
 
 -- サーバとの通信処理のコールバック
