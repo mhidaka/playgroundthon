@@ -34,7 +34,7 @@ voice_name[29] = "voice29_youkenitiran"
 
 function Voice_Open()
 	for i = 1,29 do
-		voice[i] = SND_Open(voice_name[i])
+		voice[i] = SND_Open("asset://assets/voices/" .. voice_name[i])
 	end
 end
 
@@ -49,7 +49,7 @@ function VoicePlay(no)
 end
 
 function VoiceRandomPlay(type)
---	r = math.random()
---	seON = SND_Play(voice[r])
+	r = math.random(1,29)
+    SND_Play(voice[r])
 end
 

@@ -7,6 +7,9 @@
 ・ゲームの勝利条件、敗北条件が満たされたら、勝利画面、敗北画面に遷移する
 ]]
 
+include("asset://Voice.lua")
+
+
 function setup()
 	if not rootTbl then
 		rootTbl = {}
@@ -35,7 +38,7 @@ function setup()
 							"0"	-- "<text string>"
 						)
 	
-	born_boss(1,700,200)
+	born_boss(1,700,160)
 						
 	local x = 0
 	local y = 0
@@ -50,6 +53,8 @@ function setup()
 		省略した場合は false と同じ挙動になります。
 	]]
 	
+	Voice_Open()
+	
 	TASK_StageOnly(oSceneLabel)
 	TASK_StageOnly(pObjCount)
 	TASK_StageOnly(pForm)
@@ -61,41 +66,44 @@ function execute(deltaT)
 end
 
 function leave()
+	
+	Voice_Close()
+	
 	TASK_StageClear()
 end
 
 function button1_click(name,type,param)
 	syslog('----- Form.button1_click() -----')
 	if type == 3 then
-		born_unit(1,200,200)
+		born_unit(1,200,300)
 	end
 end
 
 function button2_click(name,type,param)
 	syslog('----- Form.button2_click() -----')
 	if type == 3 then
-		born_unit(2,200,200)
+		born_unit(2,200,300)
 	end
 end
 
 function button3_click(name,type,param)
 	syslog('----- Form.button3_click() -----')
 	if type == 3 then
-		born_unit(3,200,200)
+		born_unit(3,200,300)
 	end
 end
 
 function button4_click(name,type,param)
 	syslog('----- Form.button4_click() -----')
 	if type == 3 then
-		born_unit(4,200,200)
+		born_unit(4,200,300)
 	end
 end
 
 function button5_click(name,type,param)
 	syslog('----- Form.button5_click() -----')
 	if type == 3 then
-		born_unit(5,200,200)
+		born_unit(5,200,300)
 	end
 end
 
@@ -116,6 +124,8 @@ function born_unit(index,x,y)
 								)
 	
 	ObjCounter = ObjCounter + 1
+
+    VoiceRandomPlay()
 	
 	TASK_StageOnly(pUnitItem)
 end
@@ -123,8 +133,8 @@ end
 -- born boss
 function born_boss(index,x,y)
 	local fileNames ={
-		"asset://assets/images/unit05.png.imag",
 		"asset://assets/images/boss01.png.imag",
+		"asset://assets/images/unit05.png.imag",
 	}
 	pBossItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
 									6000,							-- arg[2]:		表示プライオリティ
