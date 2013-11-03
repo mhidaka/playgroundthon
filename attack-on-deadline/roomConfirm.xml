@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBUIEditor_Plugin id="cc300150-39ee-40a1-8a94-9478545ab831" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <DrawingAllNodesClickableRegion>true</DrawingAllNodesClickableRegion>
+  <DrawingFingerNode>true</DrawingFingerNode>
+  <DrawingGrid>true</DrawingGrid>
+  <DrawingNodeClipRegion>true</DrawingNodeClipRegion>
+  <DrawingNodeName>true</DrawingNodeName>
+  <FormBounds xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d1p1:height>749</d1p1:height>
+    <d1p1:width>1436</d1p1:width>
+    <d1p1:x>215</d1p1:x>
+    <d1p1:y>168</d1p1:y>
+  </FormBounds>
+  <GridSize>10</GridSize>
+  <GuideForFourSplit>true</GuideForFourSplit>
+  <GuideForMargin>false</GuideForMargin>
+  <GuideForThreeSplit>false</GuideForThreeSplit>
+  <LayoutPpi>326</LayoutPpi>
+  <LayoutScale>0.75</LayoutScale>
+  <LayoutSize xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d1p1:height>640</d1p1:height>
+    <d1p1:width>960</d1p1:width>
+  </LayoutSize>
+  <RootNode>
+    <name>root</name>
+    <x>0</x>
+    <y>0</y>
+    <priority>0</priority>
+    <sub>
+      <UINode>
+        <name>user1</name>
+        <x>320</x>
+        <y>60</y>
+        <class>animnode</class>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <states />
+        <_x0040_DesignRectangle xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+          <d4p1:height>61</d4p1:height>
+          <d4p1:width>319</d4p1:width>
+          <d4p1:x>0</d4p1:x>
+          <d4p1:y>0</d4p1:y>
+        </_x0040_DesignRectangle>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>user2</name>
+        <x>320</x>
+        <y>170</y>
+        <class>animnode</class>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <states />
+        <_x0040_DesignRectangle xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+          <d4p1:height>61</d4p1:height>
+          <d4p1:width>319</d4p1:width>
+          <d4p1:x>0</d4p1:x>
+          <d4p1:y>0</d4p1:y>
+        </_x0040_DesignRectangle>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>user3</name>
+        <x>320</x>
+        <y>280</y>
+        <class>animnode</class>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <states />
+        <_x0040_DesignRectangle xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+          <d4p1:height>61</d4p1:height>
+          <d4p1:width>319</d4p1:width>
+          <d4p1:x>0</d4p1:x>
+          <d4p1:y>0</d4p1:y>
+        </_x0040_DesignRectangle>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>user4</name>
+        <x>320</x>
+        <y>390</y>
+        <class>animnode</class>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <states />
+        <_x0040_DesignRectangle xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+          <d4p1:height>61</d4p1:height>
+          <d4p1:width>319</d4p1:width>
+          <d4p1:x>0</d4p1:x>
+          <d4p1:y>0</d4p1:y>
+        </_x0040_DesignRectangle>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>label1</name>
+        <x>230</x>
+        <y>90</y>
+        <priority>1</priority>
+        <class>label</class>
+        <text>user1</text>
+        <fontname></fontname>
+        <fontsize>20</fontsize>
+        <_x0023_color xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">-13421773</_x0023_color>
+        <width>100</width>
+        <height>36</height>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+        <_x0023_align>5</_x0023_align>
+      </UINode>
+      <UINode>
+        <name>label2</name>
+        <x>230</x>
+        <y>200</y>
+        <priority>1</priority>
+        <class>label</class>
+        <text>user2</text>
+        <fontname></fontname>
+        <fontsize>20</fontsize>
+        <_x0023_color xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">-13421773</_x0023_color>
+        <width>100</width>
+        <height>38</height>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+        <_x0023_align>5</_x0023_align>
+      </UINode>
+      <UINode>
+        <name>label3</name>
+        <x>230</x>
+        <y>310</y>
+        <priority>1</priority>
+        <class>label</class>
+        <text>user3</text>
+        <fontname></fontname>
+        <fontsize>20</fontsize>
+        <_x0023_color xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">-13421773</_x0023_color>
+        <width>100</width>
+        <height>38</height>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+        <_x0023_align>5</_x0023_align>
+      </UINode>
+      <UINode>
+        <name>label4</name>
+        <x>230</x>
+        <y>420</y>
+        <priority>1</priority>
+        <class>label</class>
+        <text>user4</text>
+        <fontname></fontname>
+        <fontsize>20</fontsize>
+        <_x0023_color xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">-13421773</_x0023_color>
+        <width>100</width>
+        <height>38</height>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <rotation>0</rotation>
+        <_x0023_align>5</_x0023_align>
+      </UINode>
+      <UINode>
+        <name>button</name>
+        <x>380</x>
+        <y>510</y>
+        <priority>8</priority>
+        <sx>0</sx>
+        <sy>0</sy>
+        <sw>181</sw>
+        <sh>45</sh>
+        <class>button</class>
+        <default>assets/images/button01_start.png.imag</default>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string>assets/images/button01_start.png</d4p1:string>
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+    </sub>
+    <width>960</width>
+    <height>640</height>
+    <_x0040_Publishable>true</_x0040_Publishable>
+    <_x0040_CommonAssets xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d2p1:string i:nil="true" />
+    </_x0040_CommonAssets>
+  </RootNode>
+  <ServerApiGroup>[ServerAPI]</ServerApiGroup>
+  <WindowState>Normal</WindowState>
+</KLBUIEditor_Plugin>

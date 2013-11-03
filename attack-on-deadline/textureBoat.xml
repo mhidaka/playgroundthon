@@ -4,7 +4,7 @@
     <Version>0.1.0</Version>
     <ProjectFile>textureBoat.xml</ProjectFile>
     <ProjectFileRelativeDir />
-    <SaveDate>2013-11-03T16:24:31</SaveDate>
+    <SaveDate>2013-11-03T17:00:14</SaveDate>
     <EditState>true</EditState>
     <ContainerScale>1</ContainerScale>
     <ContainerSnap>8</ContainerSnap>
@@ -205,6 +205,71 @@
       <IsFlipY>false</IsFlipY>
       <IsSwitchXY>false</IsSwitchXY>
       <ImgPathName>assets/images/button01_login.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>464</X>
+        <Y>8</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>unit01.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/unit01.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>576</X>
+        <Y>8</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>unit02.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/unit02.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>688</X>
+        <Y>8</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>unit03.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/unit03.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>808</X>
+        <Y>8</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>unit04.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/unit04.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>928</X>
+        <Y>8</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>unit05.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/unit05.png</ImgPathName>
       <ZOrder>0</ZOrder>
     </TextureModel>
   </ArrayOfTextureModel>

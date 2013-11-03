@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<KLBImageEditor_Plugin id="5dd18e00-0c77-4e81-989c-e4db4874fe3b">
+<KLBImageEditor_Plugin id="e6e1acc1-f8f9-4dd1-881e-e11947651c3e">
   <ProjectPropertyModel>
     <Version>0.2.0</Version>
     <ProjectFile>unit01.png.xml</ProjectFile>
     <ProjectFileRelativeDir>assets/images/</ProjectFileRelativeDir>
-    <SaveDate>2013-11-03T16:47:26</SaveDate>
+    <SaveDate>2013-11-03T16:51:04</SaveDate>
     <EditState>false</EditState>
     <VisibleImage>false</VisibleImage>
     <VisiblePolygon>false</VisiblePolygon>
@@ -17,7 +17,7 @@
   <ImageModel>
     <isAdditive>false</isAdditive>
     <ImgFileSize>1795</ImgFileSize>
-    <ImgFileDate>2013/11/03 16:43:42</ImgFileDate>
+    <ImgFileDate>2013/11/03 16:49:43</ImgFileDate>
     <ImgPathName>assets/images/unit01.png</ImgPathName>
     <PriorityOffset>0</PriorityOffset>
     <ImageType>Default</ImageType>

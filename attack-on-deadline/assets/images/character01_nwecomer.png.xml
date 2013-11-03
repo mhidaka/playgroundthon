@@ -4,34 +4,34 @@
     <Version>0.2.0</Version>
     <ProjectFile>character01_nwecomer.png.xml</ProjectFile>
     <ProjectFileRelativeDir>assets/images/</ProjectFileRelativeDir>
-    <SaveDate>2013-11-03T13:32:04</SaveDate>
-    <EditState>false</EditState>
-    <VisibleImage>false</VisibleImage>
+    <SaveDate>2013-11-03T16:51:40</SaveDate>
+    <Comment />
+    <EditState>true</EditState>
+    <VisibleImage>true</VisibleImage>
     <VisiblePolygon>false</VisiblePolygon>
     <VisibleMask>false</VisibleMask>
     <VisibleBoundBox>false</VisibleBoundBox>
-    <VisibleGrid>false</VisibleGrid>
-    <VisibleProperty>false</VisibleProperty>
+    <VisibleGrid>true</VisibleGrid>
+    <VisibleProperty>true</VisibleProperty>
   </ProjectPropertyModel>
   <ContainerPropertyModel />
   <ImageModel>
     <isAdditive>false</isAdditive>
     <ImgFileSize>462</ImgFileSize>
-    <ImgFileDate>11/03/2013 13:22:08</ImgFileDate>
+    <ImgFileDate>2013/11/03 11:24:26</ImgFileDate>
     <ImgPathName>assets/images/character01_nwecomer.png</ImgPathName>
     <PriorityOffset>0</PriorityOffset>
     <ImageType>Default</ImageType>
     <ImageTypeParams />
     <VerticesClockwise>true</VerticesClockwise>
     <Center>
-      <X>0</X>
-      <Y>0</Y>
+      <X>20</X>
+      <Y>24</Y>
     </Center>
     <Width>40</Width>
     <Height>48</Height>
     <VertexPostProcessMode>0</VertexPostProcessMode>
     <BoundingBox>
-      <Height>48</Height>
       <Location>
         <X>0</X>
         <Y>0</Y>
@@ -40,9 +40,10 @@
         <Width>40</Width>
         <Height>48</Height>
       </Size>
-      <Width>40</Width>
       <X>0</X>
       <Y>0</Y>
+      <Width>40</Width>
+      <Height>48</Height>
     </BoundingBox>
     <Vertices>
       <PointF>
