@@ -17,6 +17,8 @@ function setup()
 	shinchoku.api.joinRoom(1, callback)
 	shinchoku.api.engageStart(1, callback)
 
+	shinchoku.api.game.addUnit(1, callback)
+
 	local x = 100
 	local y = 100
 	pSimpleItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
