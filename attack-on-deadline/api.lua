@@ -16,11 +16,13 @@ function apiLoad()
 	end
 
 	-- 使い方
-	-- api.fetchRooms({}, callback) callback は Function
-	api.fetchRooms = function (params, callback)
+	-- api.fetchRooms(callback) callback は Function
+	api.fetchRooms = function (callback)
 		syslog("[API] called fetchRooms")
 
-		local json = CONV_Lua2Json(params)
+		local json = CONV_Lua2Json({act = "room_list"})
+		syslog("[API] " .. json)
+
 		local timestamp = ENG_getNanoTime()
 		local callbackName = "SHINCHOKU_CALLBACK_fetchRooms_" .. timestamp
 		_G[callbackName] = function(connectionID, message, status, bodyPayload)
@@ -29,9 +31,25 @@ function apiLoad()
 			callback(connectionID, message, status, bodyPayload)
 		end
 
-		local pHTTP = HTTP_API(callbackName)
-		sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
-		return pHTTP
+		if not api.debug then
+			local pHTTP = HTTP_API(callbackName)
+			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			return pHTTP
+		else
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
+				rooms = {
+					{
+						id = 1,
+						owner = "hoge"
+					},
+					{
+						id = 2,
+						owner = "fuga"
+					}
+				}
+			})
+			return 0
+		end
 	end
 end
 apiLoad()

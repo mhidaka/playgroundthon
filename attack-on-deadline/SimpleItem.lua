@@ -2,13 +2,11 @@ include("asset://api.lua")
 
 function setup()
 
-	--[[
-	local params = {
-	}
-	local callback = function ()
+	local callback = function (connectionID, message, status, bodyPayload)
+		syslog("[API] " .. CONV_Lua2Json(bodyPayload))
 	end
-	shinchoku.api.fetchRooms(params, callback)
-	]]
+	shinchoku.api.debug = true -- 実際にHTTP通信せずモックを返す
+	shinchoku.api.fetchRooms(callback)
 
 	local x = 100
 	local y = 100
