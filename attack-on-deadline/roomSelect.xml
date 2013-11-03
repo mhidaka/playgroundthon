@@ -28,7 +28,7 @@
     <priority>0</priority>
     <sub>
       <UINode>
-        <name>button</name>
+        <name>room1_button</name>
         <x>300</x>
         <y>64</y>
         <priority>0</priority>
@@ -37,6 +37,7 @@
         <sw>360</sw>
         <sh>96</sh>
         <class>button</class>
+        <onclick>onRoom1Button</onclick>
         <default>assets/images/button03_room1.png.imag</default>
         <select>assets/images/button03_room1_select.png.imag</select>
         <_x0040_Publishable>true</_x0040_Publishable>
@@ -53,7 +54,7 @@
         <rotation>0</rotation>
       </UINode>
       <UINode>
-        <name>button</name>
+        <name>start_button</name>
         <x>390</x>
         <y>500</y>
         <priority>3</priority>
@@ -77,7 +78,7 @@
         <rotation>0</rotation>
       </UINode>
       <UINode>
-        <name>button</name>
+        <name>room3_button</name>
         <x>300</x>
         <y>350</y>
         <priority>2</priority>
@@ -86,6 +87,7 @@
         <sw>360</sw>
         <sh>96</sh>
         <class>button</class>
+        <onclick>onRoom3Button</onclick>
         <default>assets/images/button04_room3.png.imag</default>
         <select>assets/images/button04_room3_select.png.imag</select>
         <_x0040_Publishable>true</_x0040_Publishable>
@@ -102,7 +104,7 @@
         <rotation>0</rotation>
       </UINode>
       <UINode>
-        <name>button</name>
+        <name>room2_button</name>
         <x>300</x>
         <y>200</y>
         <priority>1</priority>
@@ -111,6 +113,7 @@
         <sw>360</sw>
         <sh>96</sh>
         <class>button</class>
+        <onclick>onRoom2Button</onclick>
         <default>assets/images/button04_room2.png.imag</default>
         <select>assets/images/button04_room2_select.png.imag</select>
         <_x0040_Publishable>true</_x0040_Publishable>
