@@ -1,5 +1,7 @@
+include("asset://ApiMock.lua")
+
 function apiLoad()
-	syslog("[API] in api.lua")
+	syslog("[API] in Api.lua")
 
 	if not shinchoku then
 		shinchoku = {}
@@ -7,13 +9,21 @@ function apiLoad()
 
 	local root = shinchoku
 
-	root.api = {}
-	root.api.game = {}
+	if not root.api then
+		root.api = {}
+	end
+	if not root.api.game then
+		root.api.game = {}
+	end
 
 	local api = root.api
 	local game = root.api.game
 	local userInfo = {}
 	local roomInfo = {}
+
+	-- モックサーバを動かすよー
+	local mock = root.api.mock
+	mock.replaceServer()
 
 	local function buildUrl(path)
 		return "http://54.238.127.127" .. path
@@ -42,12 +52,9 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-				userId = 111,
-				userName = "Mr.shinchoku"
-			})
-			userInfo.userId = 111
-			userInfo.userName = "Mr.schinchoku"
+			local user = mock.addUser(userName)
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, user)
+			userInfo = user
 			return 0
 		end
 	end
@@ -73,18 +80,8 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-				rooms = {
-					{
-						id = 1,
-						owner = "hoge"
-					},
-					{
-						id = 2,
-						owner = "fuga"
-					}
-				}
-			})
+			local rooms = mock.getRooms()
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, rooms)
 			return 0
 		end
 	end
@@ -110,18 +107,8 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-				users = {
-					{
-						id = 111,
-						name = "vvakame"
-					},
-					{
-						id = 2222,
-						name = "mhidaka"
-					}
-				}
-			})
+			local room = mock.getRoomInfo(roomId)
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, room)
 			return 0
 		end
 	end
@@ -147,11 +134,8 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-				roomId = 111,
-				ownerId = 1,
-				users = {userInfo}
-			})
+			local room = mock.createRoom(userInfo.userId)
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, room)
 			return 0
 		end
 	end
@@ -177,12 +161,9 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-				roomId = 222,
-				ownerId = 2,
-				users = {{userId = 8, userName = "Boss"}, userInfo}
-			})
-			roomInfo.roomId = 222
+			local room = mock.joinRoom(roomId, userInfo.userId)
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, room)
+			roomInfo = room
 			return 0
 		end
 	end
@@ -208,8 +189,8 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-			})
+			local ret = mock.engageStart(roomId)
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, ret)
 			roomInfo.roomId = roomId
 			return 0
 		end
