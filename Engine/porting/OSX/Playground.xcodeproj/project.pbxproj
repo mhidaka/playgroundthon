@@ -906,6 +906,7 @@
 		AB417F751825F2110091D361 /* start.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.lua; path = "../../../attack-on-deadline/.publish/iphone/start.lua"; sourceTree = "<group>"; };
 		AB417F761825F2110091D361 /* textureBoat.texb */ = {isa = PBXFileReference; lastKnownFileType = file; name = textureBoat.texb; path = "../../../attack-on-deadline/.publish/iphone/textureBoat.texb"; sourceTree = "<group>"; };
 		AB417F7A1825F50C0091D361 /* api.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = api.lua; path = "../../../attack-on-deadline/.publish/iphone/api.lua"; sourceTree = "<group>"; };
+		AB417F7C1826055A0091D361 /* itemimage.png.imag */ = {isa = PBXFileReference; lastKnownFileType = file; name = itemimage.png.imag; path = "../../../attack-on-deadline/.publish/iphone/itemimage.png.imag"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1016,6 +1017,7 @@
 				AB417F7A1825F50C0091D361 /* api.lua */,
 				AB417F741825F2110091D361 /* SimpleItem.lua */,
 				AB417F751825F2110091D361 /* start.lua */,
+				AB417F7C1826055A0091D361 /* itemimage.png.imag */,
 				AB417F761825F2110091D361 /* textureBoat.texb */,
 				32F55EBD179D0B07003807CE /* MTLmr3m.ttf */,
 				32F55EA8179CFA29003807CE /* Shaders */,

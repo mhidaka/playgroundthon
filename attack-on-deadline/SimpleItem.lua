@@ -2,7 +2,13 @@ include("asset://api.lua")
 
 function setup()
 
-	shinchoku.api.fetchRooms()
+	--[[
+	local params = {
+	}
+	local callback = function ()
+	end
+	shinchoku.api.fetchRooms(params, callback)
+	]]
 
 	local x = 100
 	local y = 100
