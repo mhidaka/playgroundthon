@@ -11,6 +11,7 @@
 		3212706A182532090027C57E /* CKLBDeviceKeyEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32127068182532090027C57E /* CKLBDeviceKeyEvent.cpp */; };
 		3212706E18253C800027C57E /* FileDelete.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3212706C18253C800027C57E /* FileDelete.cpp */; };
 		3212706F18253C800027C57E /* FontRendering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3212706D18253C800027C57E /* FontRendering.cpp */; };
+		32266E8818260E3500DF9300 /* itemimage.png.imag in Resources */ = {isa = PBXBuildFile; fileRef = AB417F7C1826055A0091D361 /* itemimage.png.imag */; };
 		327C0B8A179A3944007B7F42 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
 		327C0B94179A3944007B7F42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 327C0B92179A3944007B7F42 /* InfoPlist.strings */; };
 		327C0B96179A3945007B7F42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 327C0B95179A3945007B7F42 /* main.m */; };
@@ -2065,6 +2066,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32266E8818260E3500DF9300 /* itemimage.png.imag in Resources */,
 				32F55EB1179CFA32003807CE /* character.fsh in Resources */,
 				AB417F7B1825F50C0091D361 /* api.lua in Resources */,
 				32F55EB2179CFA32003807CE /* character.vsh in Resources */,
