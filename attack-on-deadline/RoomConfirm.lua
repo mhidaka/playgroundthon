@@ -26,7 +26,7 @@ function setup()
 	serverResult = nil -- ここにサーバから返ってきた bodyPayload が入る
 	status = 0 -- まだサーバに何もリクエストしてないよ
 
-	shinchoku.api.fetchRoomInfo(rootTbl.user.id, callbackFetchRoomInfo)
+--	shinchoku.api.fetchRoomInfo(rootTbl.selectedRoom, callbackFetchRoomInfo)
 
 	status = 1 -- サーバへのリクエスト送ったよ
 
