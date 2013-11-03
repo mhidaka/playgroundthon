@@ -13,6 +13,8 @@ function setup()
 
 	shinchoku.api.fetchRoomInfo(1, callback)
 
+	shinchoku.api.createRoom(callback)
+
 	local x = 100
 	local y = 100
 	pSimpleItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
