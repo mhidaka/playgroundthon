@@ -6,7 +6,7 @@ if [ "${KLB_PLAYGROUND_HOME}" = "" ] ; then
     ISERROR=1
 fi
 
-if [ $ISERROR == 1 ] ; then
+if [ $ISERROR = 1 ] ; then
     exit
 fi
 
