@@ -8,7 +8,7 @@
 ]]
 
 include("asset://Voice.lua")
-
+include("asset://genChar2.lua")
 
 function setup()
 	if not rootTbl then
@@ -126,6 +126,8 @@ function born_unit(index,x,y)
 									x+(ObjCounter*48), y,							-- arg[3,4]:	表示位置
 									fileNames[index]	-- arg[5]:		表示assetのパス
 								)
+	
+	initChar2(tostring(ObjCounter),x,y+100,fileNames[index])
 	
 	ObjCounter = ObjCounter + 1
 
