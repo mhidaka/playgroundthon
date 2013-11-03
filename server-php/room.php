@@ -63,7 +63,7 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	
 	function get_create_roomId($username) {
 		$room_array = $this->get_room_list();
-		$roomid = 0;
+		$roomid = -1;
 		foreach($room_array as $key => $val) {
 		echo "u: $username ".$val['owner']."\n";
 			if ($username == $val['owner']) {

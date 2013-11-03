@@ -1,8 +1,8 @@
 <?php
-require_once("ShingekiAPIBaseClass.php");
+require_once("ShingekiAPIBaseClass2.php");
 $err_msg = "";
 
-class ShingekiAPI_Room extends ShingekiAPIBaseClass {
+class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	protected $room_dir = "/tmp/shingeki/room";
 	
 	public function execute() {
