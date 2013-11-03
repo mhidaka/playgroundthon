@@ -6,17 +6,17 @@
   <DrawingNodeClipRegion>true</DrawingNodeClipRegion>
   <DrawingNodeName>true</DrawingNodeName>
   <FormBounds xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
-    <d1p1:height>548</d1p1:height>
-    <d1p1:width>976</d1p1:width>
+    <d1p1:height>692</d1p1:height>
+    <d1p1:width>1409</d1p1:width>
     <d1p1:x>326</d1p1:x>
     <d1p1:y>44</d1p1:y>
   </FormBounds>
   <GridSize>10</GridSize>
-  <GuideForFourSplit>false</GuideForFourSplit>
+  <GuideForFourSplit>true</GuideForFourSplit>
   <GuideForMargin>false</GuideForMargin>
   <GuideForThreeSplit>false</GuideForThreeSplit>
   <LayoutPpi>326</LayoutPpi>
-  <LayoutScale>1</LayoutScale>
+  <LayoutScale>0.5</LayoutScale>
   <LayoutSize xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
     <d1p1:height>640</d1p1:height>
     <d1p1:width>960</d1p1:width>
@@ -29,8 +29,8 @@
     <sub>
       <UINode>
         <name>button1</name>
-        <x>10</x>
-        <y>230</y>
+        <x>70</x>
+        <y>480</y>
         <priority>0</priority>
         <sx>0</sx>
         <sy>0</sy>
@@ -38,12 +38,12 @@
         <sh>100</sh>
         <class>button</class>
         <onclick>button1_click</onclick>
-        <default>assets/images/character01_nwecomer.png.imag</default>
+        <default>assets/images/unit01.png.imag</default>
         <_x0040_Publishable>true</_x0040_Publishable>
         <xscale>1</xscale>
         <yscale>1</yscale>
         <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-          <d4p1:string>assets/images/character01_nwecomer.png</d4p1:string>
+          <d4p1:string>assets/images/unit01.png</d4p1:string>
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
@@ -54,8 +54,8 @@
       </UINode>
       <UINode>
         <name>button2</name>
-        <x>120</x>
-        <y>230</y>
+        <x>240</x>
+        <y>480</y>
         <priority>4</priority>
         <sx>0</sx>
         <sy>0</sy>
@@ -63,12 +63,12 @@
         <sh>100</sh>
         <class>button</class>
         <onclick>button2_click</onclick>
-        <default>assets/images/character02_amateur.png.imag</default>
+        <default>assets/images/unit02.png.imag</default>
         <_x0040_Publishable>true</_x0040_Publishable>
         <xscale>1</xscale>
         <yscale>1</yscale>
         <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-          <d4p1:string>assets/images/character02_amateur.png</d4p1:string>
+          <d4p1:string>assets/images/unit02.png</d4p1:string>
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
@@ -79,8 +79,8 @@
       </UINode>
       <UINode>
         <name>button3</name>
-        <x>230</x>
-        <y>230</y>
+        <x>430</x>
+        <y>480</y>
         <priority>3</priority>
         <sx>0</sx>
         <sy>0</sy>
@@ -88,12 +88,12 @@
         <sh>100</sh>
         <class>button</class>
         <onclick>button3_click</onclick>
-        <default>assets/images/character03_normal.png.imag</default>
+        <default>assets/images/unit03.png.imag</default>
         <_x0040_Publishable>true</_x0040_Publishable>
         <xscale>1</xscale>
         <yscale>1</yscale>
         <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-          <d4p1:string>assets/images/character03_normal.png</d4p1:string>
+          <d4p1:string>assets/images/unit03.png</d4p1:string>
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
@@ -104,8 +104,8 @@
       </UINode>
       <UINode>
         <name>button4</name>
-        <x>340</x>
-        <y>230</y>
+        <x>620</x>
+        <y>480</y>
         <priority>2</priority>
         <sx>0</sx>
         <sy>0</sy>
@@ -113,12 +113,12 @@
         <sh>100</sh>
         <class>button</class>
         <onclick>button4_click</onclick>
-        <default>assets/images/character04_export.png.imag</default>
+        <default>assets/images/unit04.png.imag</default>
         <_x0040_Publishable>true</_x0040_Publishable>
         <xscale>1</xscale>
         <yscale>1</yscale>
         <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-          <d4p1:string>assets/images/character04_export.png</d4p1:string>
+          <d4p1:string>assets/images/unit04.png</d4p1:string>
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
@@ -129,8 +129,8 @@
       </UINode>
       <UINode>
         <name>button5</name>
-        <x>450</x>
-        <y>230</y>
+        <x>790</x>
+        <y>480</y>
         <priority>1</priority>
         <sx>0</sx>
         <sy>0</sy>
@@ -138,12 +138,12 @@
         <sh>100</sh>
         <class>button</class>
         <onclick>button5_click</onclick>
-        <default>assets/images/character05_hacker.png.imag</default>
+        <default>assets/images/unit05.png.imag</default>
         <_x0040_Publishable>true</_x0040_Publishable>
         <xscale>1</xscale>
         <yscale>1</yscale>
         <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-          <d4p1:string>assets/images/character05_hacker.png</d4p1:string>
+          <d4p1:string>assets/images/unit05.png</d4p1:string>
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
           <d4p1:string i:nil="true" />
