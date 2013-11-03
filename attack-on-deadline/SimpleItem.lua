@@ -1,4 +1,3 @@
-include("asset://api.lua")
 
 function setup()
 
