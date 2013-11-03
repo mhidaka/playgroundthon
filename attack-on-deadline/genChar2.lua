@@ -7,6 +7,8 @@ tblCHAR2 = {}
 countCHAR2 = 0
 
 _BossHP = 530000
+_Money  = 0 
+
 
 function initChar2(key, x, y, asset)
 	local tbl = {}

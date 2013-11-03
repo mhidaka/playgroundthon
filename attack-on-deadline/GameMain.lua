@@ -10,6 +10,8 @@
 include("asset://Voice.lua")
 include("asset://genChar2.lua")
 
+_growupCounter = 0
+
 function setup()
 	if not rootTbl then
 		rootTbl = {}
@@ -55,6 +57,15 @@ function setup()
 							32,				-- <font size>, 
 							"0"	-- "<text string>"
 						)
+	pObjMoney = UI_Label 	(
+							nil, 			-- <parent pointer>, 
+							7000, 			-- <order>, 
+							64,400,		-- <x>, <y>,
+                            0xFF, 0x000000,	-- <alpha>, <rgb>, 
+							"MTLmr3m",	-- "<font name>",
+							32,				-- <font size>, 
+							"0"	-- "<text string>"
+						)
 	
 	born_boss(1,700,160)
 						
@@ -83,12 +94,22 @@ function setup()
 end
 
 function execute(deltaT)
-	local numString = tostring( ObjCounter )
+	_growupCounter = _growupCounter + 1
+	if _growupCounter > 60 then
+		_Money = _Money + 1
+		_growupCounter = 0
+	end
+	
+	local numString = ""
+	numString = "TOTAL :" .. tostring( ObjCounter )
 	sysCommand( pObjCount, UI_LABEL_SET_TEXT, numString )
-	numString = tostring( countCHAR2 )
+	numString = "ACTIVE:" .. tostring( countCHAR2 )
 	sysCommand( pObjCount2, UI_LABEL_SET_TEXT, numString )
-	numString = tostring( _BossHP )
+	numString = "BOSS HP:" .. tostring( _BossHP )
 	sysCommand( pObjBossHP, UI_LABEL_SET_TEXT, numString )
+	numString = "MONEY :" .. tostring( _Money )
+	sysCommand( pObjMoney, UI_LABEL_SET_TEXT, numString )
+	
 end
 
 function leave()
@@ -151,13 +172,17 @@ function born_unit(index,x,y)
 --								)
 	
 	-- move objects
-	initChar2(tostring(ObjCounter),x,y+48,fileNames[index])
+	local cost = index * 3
+	if _Money > cost then
+		_Money = _Money - cost		-- dec cost
+		initChar2(tostring(ObjCounter),x,y+48,fileNames[index])
 	
-	ObjCounter = ObjCounter + 1
+		ObjCounter = ObjCounter + 1
 
-    VoiceRandomPlay()
-	
-	TASK_StageOnly(pUnitItem)
+		VoiceRandomPlay()
+	end
+
+--	TASK_StageOnly(pUnitItem)
 end
 
 -- born boss
