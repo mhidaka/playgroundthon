@@ -65,7 +65,6 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		$room_array = $this->get_room_list();
 		$roomid = 0;
 		foreach($room_array as $key => $val) {
-		echo "u: $username ".$val['owner']."\n";
 			if ($username == $val['owner']) {
 				return $val['id'];
 			}
@@ -119,7 +118,7 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		$file_path = $this->room_dir."/".$roomid;
 		$fp = fopen($file_path, "w");
 		if ($fp) {
-			fwrite($fp, "owner"."\t".$username."\n");
+			fwrite($fp, "owner"."\t".$userid."\t".$username."\n");
 			fclose($fp);
 		} else {
 			die("fopen err");
@@ -153,6 +152,11 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 		
 	}
 
+	// act:join_room
+	function room_status() {
+		
+	}
+
 	function parseInputData() {
 		if (isset($this->pPost['act'])) {
 			switch($this->pPost['act']) {
@@ -167,6 +171,9 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 					break;
 				case "room_status":
 					$this->room_status();
+					break;
+				case "join_room":
+					$this->join_room();
 					break;
 				default:
 					$this->err_msg = "act not found.";
