@@ -46,6 +46,15 @@ function setup()
 							32,				-- <font size>, 
 							"0"	-- "<text string>"
 						)
+	pObjBossHP = UI_Label 	(
+							nil, 			-- <parent pointer>, 
+							7000, 			-- <order>, 
+							800,160,		-- <x>, <y>,
+                            0xFF, 0x000000,	-- <alpha>, <rgb>, 
+							"MTLmr3m",	-- "<font name>",
+							32,				-- <font size>, 
+							"0"	-- "<text string>"
+						)
 	
 	born_boss(1,700,160)
 						
@@ -78,6 +87,8 @@ function execute(deltaT)
 	sysCommand( pObjCount, UI_LABEL_SET_TEXT, numString )
 	numString = tostring( countCHAR2 )
 	sysCommand( pObjCount2, UI_LABEL_SET_TEXT, numString )
+	numString = tostring( _BossHP )
+	sysCommand( pObjBossHP, UI_LABEL_SET_TEXT, numString )
 end
 
 function leave()
@@ -140,7 +151,7 @@ function born_unit(index,x,y)
 --								)
 	
 	-- move objects
-	initChar2(tostring(ObjCounter),x,y+100,fileNames[index])
+	initChar2(tostring(ObjCounter),x,y+48,fileNames[index])
 	
 	ObjCounter = ObjCounter + 1
 

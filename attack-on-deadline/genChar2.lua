@@ -6,6 +6,8 @@ tblCHAR2 = {}
 
 countCHAR2 = 0
 
+_BossHP = 530000
+
 function initChar2(key, x, y, asset)
 	local tbl = {}
 	
@@ -38,6 +40,8 @@ function execute_char2(pTask, deltaT, key)
 		-- => Need to kill in execute.
 		TASK_kill(tblCHAR2[key].image)
 		countCHAR2 = countCHAR2 - 1
+		
+		_BossHP = _BossHP - 1
 	end
 end
 
