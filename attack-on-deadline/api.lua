@@ -8,9 +8,12 @@ function apiLoad()
 	local root = shinchoku
 
 	root.api = {}
+	root.api.game = {}
 
 	local api = root.api
+	local game = root.api.game
 	local userInfo = {}
+	local roomInfo = {}
 
 	local function buildUrl(path)
 		return "http://54.238.127.127" .. path
@@ -177,6 +180,7 @@ function apiLoad()
 				ownerId = 2,
 				users = {{userId = 8, userName = "Boss"}, userInfo}
 			})
+			roomInfo.roomId = 222
 			return 0
 		end
 	end
@@ -203,6 +207,45 @@ function apiLoad()
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
+			})
+			roomInfo.roomId = roomId
+			return 0
+		end
+	end
+
+	-- TODO
+	-- 兵士追加, ステージの状態取得, 
+	game.addUnit = function (kind, callback)
+		syslog("[API] called addUnit")
+
+		local json = CONV_Lua2Json({act = "add", roomId = roomInfo.roomId, userId = userInfo.userId, unitKind = kind})
+		syslog("[API] " .. json)
+
+		local timestamp = ENG_getNanoTime()
+		local callbackName = "SHINCHOKU_CALLBACK_addUnit_" .. timestamp
+		_G[callbackName] = function(connectionID, message, status, bodyPayload)
+			syslog("callback is coming! " .. callbackName)
+			_G[callbackName] = nil
+			callback(connectionID, message, status, bodyPayload)
+		end
+
+		if not api.debug then
+			local pHTTP = HTTP_API(callbackName)
+			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			return pHTTP
+		else
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
+				unitId = 1111,
+				ownerId = userInfo.userId,
+				kind = kind,
+				pos = {
+					x = 1,
+					y = 2,
+					z = 3
+				},
+				hp = 100,
+				atk = 33,
+				cost = 100
 			})
 			return 0
 		end
