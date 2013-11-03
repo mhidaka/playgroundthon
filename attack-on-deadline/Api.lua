@@ -122,7 +122,7 @@ function apiLoad()
 		local apiName = "createRoom";
 		syslog("[API] called " .. apiName)
 
-		local json = CONV_Lua2Json({ownerId = userInfo.id})
+		local json = CONV_Lua2Json({act = "create_room", userId = userInfo.id})
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()

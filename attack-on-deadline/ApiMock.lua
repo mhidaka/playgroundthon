@@ -115,7 +115,7 @@ function mockLoad()
 		end
 		room.internal.state.boss.hp = 9999
 
-		return {}
+		return room.internal.state
 	end
 
 	mock.addUnit = function(roomId, ownerId, kind)
