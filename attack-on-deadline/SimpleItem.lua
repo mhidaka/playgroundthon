@@ -18,6 +18,7 @@ function setup()
 	shinchoku.api.engageStart(1, callback)
 
 	shinchoku.api.game.addUnit(1, callback)
+	shinchoku.api.game.fetchStageInfo(callback)
 
 	local x = 100
 	local y = 100

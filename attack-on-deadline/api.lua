@@ -213,8 +213,8 @@ function apiLoad()
 		end
 	end
 
-	-- TODO
-	-- 兵士追加, ステージの状態取得, 
+	-- 使い方
+	-- game.addUnit(kind, callback)
 	game.addUnit = function (kind, callback)
 		syslog("[API] called addUnit")
 
@@ -238,14 +238,80 @@ function apiLoad()
 				unitId = 1111,
 				ownerId = userInfo.userId,
 				kind = kind,
-				pos = {
-					x = 1,
-					y = 2,
-					z = 3
-				},
+				x = 1,
+				y = 2,
+				z = 3,
 				hp = 100,
 				atk = 33,
 				cost = 100
+			})
+			return 0
+		end
+	end
+
+	-- 使い方
+	-- game.fetchStageInfo(callback)
+	game.fetchStageInfo = function (callback)
+		syslog("[API] called fetchStageInfo")
+
+		local json = CONV_Lua2Json({roomId = roomInfo.roomId, userId = userInfo.userId})
+		syslog("[API] " .. json)
+
+		local timestamp = ENG_getNanoTime()
+		local callbackName = "SHINCHOKU_CALLBACK_fetchStageInfo_" .. timestamp
+		_G[callbackName] = function(connectionID, message, status, bodyPayload)
+			syslog("callback is coming! " .. callbackName)
+			_G[callbackName] = nil
+			callback(connectionID, message, status, bodyPayload)
+		end
+
+		if not api.debug then
+			local pHTTP = HTTP_API(callbackName)
+			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			return pHTTP
+		else
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
+				boss = {
+					hp = 9999
+				},
+				user = {
+					wallet = 1000
+				},
+				units = {
+					{
+						unitId = 1111,
+						ownerId = userInfo.userId,
+						kind = 1,
+						x = 1,
+						y = 2,
+						z = 3,
+						hp = 100,
+						atk = 33,
+						cost = 100
+					},
+					{
+						unitId = 1112,
+						ownerId = userInfo.userId,
+						kind = 2,
+						x = 3,
+						y = 1,
+						z = 2,
+						hp = 2,
+						atk = 11,
+						cost = 100
+					},
+					{
+						unitId = 1113,
+						ownerId = userInfo.userId,
+						kind = 3,
+						x = 4,
+						y = 3,
+						z = 1,
+						hp = 1,
+						atk = 1,
+						cost = 1
+					}
+				}
 			})
 			return 0
 		end
