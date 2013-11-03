@@ -1,8 +1,8 @@
 <?php
-require_once("ShingekiAPIBaseClass.php");
+require_once("ShingekiAPIBaseClass2.php");
 $err_msg = "";
 
-class ShingekiAPI_Room extends ShingekiAPIBaseClass {
+class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	protected $shingeki_dir = "/tmp/shingeki";
 	protected $room_dir = "/tmp/shingeki/room";
 
@@ -32,6 +32,14 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass {
 		return $userlist;
 	}
 	
+	function getId2Username($id) {
+		$userlist = $this->getUserlist();
+		if (isset($userlist[$id])) {
+			return $userlist[$id];
+		}
+		return "";
+	}
+	
 	function getRoomlist() {
 		$room_array = array();
 		$open_dir = opendir($this->room_dir);
@@ -51,6 +59,21 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass {
 	        }
 		}
 		return $room_array;
+	}
+	
+	function getCreateRoomId($username) {
+		$room_array = $this->getRoomlist();
+		$roomid = 0;
+		foreach($room_array as $key => $val) {
+		echo "u: $username ".$val['owner']."\n";
+			if ($username == $val['owner']) {
+				return $val['id'];
+			}
+			if ($roomid < $val['id']) {
+				$roomid = $val['id'];
+			}
+		}
+		return $roomid + 1;
 	}
 
 	function login() {
@@ -87,18 +110,26 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass {
 
 	function create_room() {
 		$userid = $this->pPost['userId'];
+		$username = $this->getId2Username($userid);
 
 		$room_dir = $this->room_dir;
-		$roomid = -1;
-		$file_path = $this->room_dir."/2";
+		$roomid = $this->getCreateRoomId($username);
+		$file_path = $this->room_dir."/".$roomid;
 		$fp = fopen($file_path, "w");
 		if ($fp) {
-			fwrite($fp, "owner"."\t"."hoge"."\n");
-			fwrite($fp, "normal"."\t"."fuga"."\n");
+			fwrite($fp, "owner"."\t".$username."\n");
 			fclose($fp);
 		} else {
 			die("fopen err");
 		}
+		$output = array();
+		$output['ownerId'] = intval($userid);
+		$output['roomId'] = $roomid;
+		$userdata = array();
+		$userdata['userId'] = intval($userid); 
+		$userdata['userName'] = $username; 
+		$output['users'] = array($userdata);
+		print_r(json_encode($output));
 	}
 	
 	function roomList() {

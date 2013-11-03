@@ -1,5 +1,5 @@
 <?php
-class ShingekiAPIBaseClass {
+class ShingekiAPIBaseClass2 {
 	protected $err_msg = "";
 	protected $pPost = "";
 
@@ -11,7 +11,7 @@ class ShingekiAPIBaseClass {
 	}
 	
 	public function convertInputJson() {
-		$raw_post = file_get_contents('php://input');
+		$raw_post = $_POST['request_data'];
 		$this->pPost = json_decode($raw_post, true);
 	}
 }
