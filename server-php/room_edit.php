@@ -165,6 +165,12 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 				break;
 			}
 		}
+		
+		if (!$room_match) {
+			$this->err_msg = "roomId not found.";
+			return;
+		}
+		
 		// **todo
 	}
 
@@ -188,11 +194,11 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 					break;
 				default:
 					$this->err_msg = "act not found.";
-					header('HTTP', true, 400);
-					return false;
 			}
 		} else {
 			$this->err_msg = "act not found.";
+		}
+		if ($this->err_msg != "") {
 			header('HTTP', true, 400);
 			return false;
 		}
