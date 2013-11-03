@@ -33,7 +33,7 @@ function setup()
 
 	status = 1 -- サーバへのリクエスト送ったよ
     
-	TASK_StageOnly(pSceneForm)
+	TASK_StageOnly(pForm)
 end
 
 function execute(deltaT)
@@ -52,6 +52,9 @@ function execute(deltaT)
 	status = 0 -- 通信終わってるはずだから元に戻しておくよ
 
 	-- TODO: ルーム一覧表示を更新する
+	if serverResult == nil then
+		return
+	end
 end
 
 function leave()
