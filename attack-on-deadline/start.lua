@@ -1,3 +1,7 @@
+include("asset://api.lua")
+
+shinchoku.api.debug = true
+
 function setup()
 	if not rootTbl then
 		rootTbl = {}
