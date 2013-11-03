@@ -54,8 +54,8 @@ function apiLoad()
 			return pHTTP
 		else
 			local user = mock.addUser(userName)
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, user)
 			userInfo = user
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, user)
 			return 0
 		end
 	end
@@ -94,7 +94,7 @@ function apiLoad()
 		local apiName = "fetchRoomInfo";
 		syslog("[API] called " .. apiName)
 
-		local json = CONV_Lua2Json({act = "room_status", id = 1})
+		local json = CONV_Lua2Json({act = "room_status", id = roomId})
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()
@@ -122,7 +122,7 @@ function apiLoad()
 		local apiName = "createRoom";
 		syslog("[API] called " .. apiName)
 
-		local json = CONV_Lua2Json({ownerId = userInfo.userId})
+		local json = CONV_Lua2Json({ownerId = userInfo.id})
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()
@@ -138,7 +138,7 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			local room = mock.createRoom(userInfo.userId)
+			local room = mock.createRoom(userInfo.id)
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, room)
 			return 0
 		end
@@ -150,7 +150,7 @@ function apiLoad()
 		local apiName = "joinRoom";
 		syslog("[API] called " .. apiName)
 
-		local json = CONV_Lua2Json({roomId = roomId, userId = userInfo.userId})
+		local json = CONV_Lua2Json({roomId = roomId, userId = userInfo.id})
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()
@@ -166,9 +166,9 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
-			local room = mock.joinRoom(roomId, userInfo.userId)
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, room)
+			local room = mock.joinRoom(roomId, userInfo.id)
 			roomInfo = room
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, room)
 			return 0
 		end
 	end
@@ -179,7 +179,7 @@ function apiLoad()
 		local apiName = "engageStart";
 		syslog("[API] called " .. apiName)
 
-		local json = CONV_Lua2Json({act = "start", roomId = roomId, userId = userInfo.userId})
+		local json = CONV_Lua2Json({act = "start", roomId = roomId, userId = userInfo.id})
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()
@@ -196,8 +196,8 @@ function apiLoad()
 			return pHTTP
 		else
 			local ret = mock.engageStart(roomId)
+			roomInfo = mock.getRoomInfo(roomId)
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, ret)
-			roomInfo.roomId = roomId
 			return 0
 		end
 	end
@@ -208,7 +208,7 @@ function apiLoad()
 		local apiName = "addUnit";
 		syslog("[API] called " .. apiName)
 
-		local json = CONV_Lua2Json({act = "add", roomId = roomInfo.roomId, userId = userInfo.userId, unitKind = kind})
+		local json = CONV_Lua2Json({act = "add", roomId = roomInfo.id, userId = userInfo.id, unitKind = kind})
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()
@@ -224,7 +224,7 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/stage.php"), nil, json, timeout)
 			return pHTTP
 		else
-			local ret = mock.addUnit(roomInfo.roomId, userInfo.userId, kind)
+			local ret = mock.addUnit(roomInfo.id, userInfo.id, kind)
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, ret)
 			return 0
 		end
@@ -236,7 +236,7 @@ function apiLoad()
 		local apiName = "fetchStageInfo";
 		syslog("[API] called " .. apiName)
 
-		local json = CONV_Lua2Json({roomId = roomInfo.roomId, userId = userInfo.userId})
+		local json = CONV_Lua2Json({roomId = roomInfo.id, userId = userInfo.id})
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()
@@ -252,7 +252,7 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/stage.php"), nil, json, timeout)
 			return pHTTP
 		else
-			local ret = mock.getStageInfo(roomInfo.roomId)
+			local ret = mock.getStageInfo(roomInfo.id)
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, ret)
 			return 0
 		end

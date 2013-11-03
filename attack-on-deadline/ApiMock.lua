@@ -51,16 +51,32 @@ function mockLoad()
 	end
 
 	mock.getRooms = function()
-		return mock.serverData.rooms
+		return {rooms = mock.serverData.rooms}
 	end
 
 	mock.getRoomInfo = function(roomId)
-		return mock.serverData.rooms[roomId]
+		local room = nil
+		for k, v in pairs(mock.serverData.rooms) do
+			if v.id == roomId then
+				room = v
+			end
+		end
+		return room
+	end
+
+	mock.getUserInfo = function(userId)
+		local user = nil
+		for k, v in pairs(mock.users) do
+			if v.id == userId then
+				user = v
+			end
+		end
+		return user
 	end
 
 	mock.createRoom = function(userId)
 		local room = {}
-		local user = mock.users[userId]
+		local user = mock.getUserInfo(userId)
 		room = {}
 		room.id = rand()
 		room.owner = user
@@ -70,7 +86,7 @@ function mockLoad()
 	end
 
 	mock.joinRoom = function(roomId, userId)
-		local room = mock.getRooms()[roomId]
+		local room = mock.getRoomInfo(roomId)
 
 		for k, v in pairs(room.users) do
 			if k == userId then
@@ -78,9 +94,7 @@ function mockLoad()
 			end
 		end
 
-		local user = mock.users[userId]
-
-		table.insert(room.users, user)
+		table.insert(room.users, mock.getUserInfo(userId))
 		return room
 	end
 
