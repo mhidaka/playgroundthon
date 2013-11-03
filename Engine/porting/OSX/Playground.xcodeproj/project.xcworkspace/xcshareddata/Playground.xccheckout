@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3D557589-A917-4CEC-8F85-1ED37C394E2B</string>
+	<string>B34E724E-B46C-46AC-BD1F-B2334D8F7FFA</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Playground</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>28028FDE-F69E-4CC9-9A6B-FFA5C27938C6</key>
-		<string>ssh://github.com/vvakame/PlaygroundOSS.git</string>
+		<key>654F8CEB-A146-44DA-A892-A563F5FFA8E5</key>
+		<string>ssh://github.com/mhidaka/playgroundthon.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Engine/porting/OSX/Playground.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>28028FDE-F69E-4CC9-9A6B-FFA5C27938C6</key>
+		<key>654F8CEB-A146-44DA-A892-A563F5FFA8E5</key>
 		<string>../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/vvakame/PlaygroundOSS.git</string>
+	<string>ssh://github.com/mhidaka/playgroundthon.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>28028FDE-F69E-4CC9-9A6B-FFA5C27938C6</string>
+	<string>654F8CEB-A146-44DA-A892-A563F5FFA8E5</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>28028FDE-F69E-4CC9-9A6B-FFA5C27938C6</string>
+			<string>654F8CEB-A146-44DA-A892-A563F5FFA8E5</string>
 			<key>IDESourceControlWCCName</key>
-			<string>PlaygroundOSS</string>
+			<string>playgroundthon</string>
 		</dict>
 	</array>
 </dict>

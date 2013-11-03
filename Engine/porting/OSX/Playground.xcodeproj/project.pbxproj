@@ -11,10 +11,6 @@
 		3212706A182532090027C57E /* CKLBDeviceKeyEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32127068182532090027C57E /* CKLBDeviceKeyEvent.cpp */; };
 		3212706E18253C800027C57E /* FileDelete.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3212706C18253C800027C57E /* FileDelete.cpp */; };
 		3212706F18253C800027C57E /* FontRendering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3212706D18253C800027C57E /* FontRendering.cpp */; };
-		3212707418253D2A0027C57E /* itemimage.png.imag in Resources */ = {isa = PBXBuildFile; fileRef = 3212707018253D2A0027C57E /* itemimage.png.imag */; };
-		3212707518253D2A0027C57E /* SimpleItem.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3212707118253D2A0027C57E /* SimpleItem.lua */; };
-		3212707618253D2A0027C57E /* start.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3212707218253D2A0027C57E /* start.lua */; };
-		3212707718253D2A0027C57E /* textureBoat.texb in Resources */ = {isa = PBXBuildFile; fileRef = 3212707318253D2A0027C57E /* textureBoat.texb */; };
 		327C0B8A179A3944007B7F42 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
 		327C0B94179A3944007B7F42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 327C0B92179A3944007B7F42 /* InfoPlist.strings */; };
 		327C0B96179A3945007B7F42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 327C0B95179A3945007B7F42 /* main.m */; };
@@ -296,6 +292,9 @@
 		6F65D8DB179CE18500E9F3CE /* modelUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D3179CE0D200E9F3CE /* modelUtil.c */; };
 		6F65D8DC179CE18500E9F3CE /* sourceUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D5179CE0D200E9F3CE /* sourceUtil.c */; };
 		6F65D8DD179CE18500E9F3CE /* vectorUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D7179CE0D200E9F3CE /* vectorUtil.c */; };
+		AB417F771825F2110091D361 /* SimpleItem.lua in Resources */ = {isa = PBXBuildFile; fileRef = AB417F741825F2110091D361 /* SimpleItem.lua */; };
+		AB417F781825F2110091D361 /* start.lua in Resources */ = {isa = PBXBuildFile; fileRef = AB417F751825F2110091D361 /* start.lua */; };
+		AB417F791825F2110091D361 /* textureBoat.texb in Resources */ = {isa = PBXBuildFile; fileRef = AB417F761825F2110091D361 /* textureBoat.texb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -306,10 +305,6 @@
 		3212706B18253C630027C57E /* FileDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileDelete.h; path = ../../FileDelete.h; sourceTree = "<group>"; };
 		3212706C18253C800027C57E /* FileDelete.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileDelete.cpp; path = ../../FileDelete.cpp; sourceTree = "<group>"; };
 		3212706D18253C800027C57E /* FontRendering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FontRendering.cpp; path = ../../FontRendering.cpp; sourceTree = "<group>"; };
-		3212707018253D2A0027C57E /* itemimage.png.imag */ = {isa = PBXFileReference; lastKnownFileType = file; name = itemimage.png.imag; path = ../../../Tutorial/01.SimpleItem/.publish/iphone/itemimage.png.imag; sourceTree = "<group>"; };
-		3212707118253D2A0027C57E /* SimpleItem.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleItem.lua; path = ../../../Tutorial/01.SimpleItem/.publish/iphone/SimpleItem.lua; sourceTree = "<group>"; };
-		3212707218253D2A0027C57E /* start.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.lua; path = ../../../Tutorial/01.SimpleItem/.publish/iphone/start.lua; sourceTree = "<group>"; };
-		3212707318253D2A0027C57E /* textureBoat.texb */ = {isa = PBXFileReference; lastKnownFileType = file; name = textureBoat.texb; path = ../../../Tutorial/01.SimpleItem/.publish/iphone/textureBoat.texb; sourceTree = "<group>"; };
 		327C0B86179A3944007B7F42 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327C0B89179A3944007B7F42 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		327C0B8C179A3944007B7F42 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -906,6 +901,9 @@
 		6F65D8D6179CE0D200E9F3CE /* sourceUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sourceUtil.h; sourceTree = "<group>"; };
 		6F65D8D7179CE0D200E9F3CE /* vectorUtil.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vectorUtil.c; sourceTree = "<group>"; };
 		6F65D8D8179CE0D200E9F3CE /* vectorUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vectorUtil.h; sourceTree = "<group>"; };
+		AB417F741825F2110091D361 /* SimpleItem.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleItem.lua; path = "../../../attack-on-deadline/.publish/iphone/SimpleItem.lua"; sourceTree = "<group>"; };
+		AB417F751825F2110091D361 /* start.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.lua; path = "../../../attack-on-deadline/.publish/iphone/start.lua"; sourceTree = "<group>"; };
+		AB417F761825F2110091D361 /* textureBoat.texb */ = {isa = PBXFileReference; lastKnownFileType = file; name = textureBoat.texb; path = "../../../attack-on-deadline/.publish/iphone/textureBoat.texb"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1013,10 +1011,9 @@
 		327C0BA6179A39A9007B7F42 /* ProjectResources */ = {
 			isa = PBXGroup;
 			children = (
-				3212707018253D2A0027C57E /* itemimage.png.imag */,
-				3212707118253D2A0027C57E /* SimpleItem.lua */,
-				3212707218253D2A0027C57E /* start.lua */,
-				3212707318253D2A0027C57E /* textureBoat.texb */,
+				AB417F741825F2110091D361 /* SimpleItem.lua */,
+				AB417F751825F2110091D361 /* start.lua */,
+				AB417F761825F2110091D361 /* textureBoat.texb */,
 				32F55EBD179D0B07003807CE /* MTLmr3m.ttf */,
 				32F55EA8179CFA29003807CE /* Shaders */,
 				32F55EA4179CF9C8003807CE /* demon.model */,
@@ -2065,19 +2062,18 @@
 			files = (
 				32F55EB1179CFA32003807CE /* character.fsh in Resources */,
 				32F55EB2179CFA32003807CE /* character.vsh in Resources */,
+				AB417F771825F2110091D361 /* SimpleItem.lua in Resources */,
 				32F55EB3179CFA32003807CE /* reflect.fsh in Resources */,
-				3212707518253D2A0027C57E /* SimpleItem.lua in Resources */,
+				AB417F791825F2110091D361 /* textureBoat.texb in Resources */,
 				32F55EB4179CFA32003807CE /* reflect.vsh in Resources */,
 				32F55EA6179CF9DB003807CE /* demon.model in Resources */,
 				32F55EA7179CF9DB003807CE /* demon.png in Resources */,
-				3212707418253D2A0027C57E /* itemimage.png.imag in Resources */,
-				3212707718253D2A0027C57E /* textureBoat.texb in Resources */,
 				327C0B94179A3944007B7F42 /* InfoPlist.strings in Resources */,
 				327C0B9A179A3945007B7F42 /* Credits.rtf in Resources */,
 				327C0BA0179A3945007B7F42 /* MainMenu.xib in Resources */,
 				327C0CF8179A3F34007B7F42 /* shaderSource.inl in Resources */,
+				AB417F781825F2110091D361 /* start.lua in Resources */,
 				3284FE91179A4F6600B0CA20 /* important.txt in Resources */,
-				3212707618253D2A0027C57E /* start.lua in Resources */,
 				32F55EBE179D0B07003807CE /* MTLmr3m.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

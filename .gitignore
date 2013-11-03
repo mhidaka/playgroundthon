@@ -40,4 +40,7 @@ __MACOSX/
 *.so
 *.dll
 
+# project local
 .publish
+attack-on-deadline/.publish
+attack-on-deadline/.working
