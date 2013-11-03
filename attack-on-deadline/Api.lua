@@ -224,17 +224,8 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/stage.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-				unitId = 1111,
-				ownerId = userInfo.userId,
-				kind = kind,
-				x = 1,
-				y = 2,
-				z = 3,
-				hp = 100,
-				atk = 33,
-				cost = 100
-			})
+			local ret = mock.addUnit(roomInfo.roomId, userInfo.userId, kind)
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, ret)
 			return 0
 		end
 	end
@@ -261,49 +252,8 @@ function apiLoad()
 			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/stage.php"), nil, json, timeout)
 			return pHTTP
 		else
-			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
-				boss = {
-					hp = 9999
-				},
-				user = {
-					wallet = 1000
-				},
-				units = {
-					{
-						unitId = 1111,
-						ownerId = userInfo.userId,
-						kind = 1,
-						x = 1,
-						y = 2,
-						z = 3,
-						hp = 100,
-						atk = 33,
-						cost = 100
-					},
-					{
-						unitId = 1112,
-						ownerId = userInfo.userId,
-						kind = 2,
-						x = 3,
-						y = 1,
-						z = 2,
-						hp = 2,
-						atk = 11,
-						cost = 100
-					},
-					{
-						unitId = 1113,
-						ownerId = userInfo.userId,
-						kind = 3,
-						x = 4,
-						y = 3,
-						z = 1,
-						hp = 1,
-						atk = 1,
-						cost = 1
-					}
-				}
-			})
+			local ret = mock.getStageInfo(roomInfo.roomId)
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, ret)
 			return 0
 		end
 	end

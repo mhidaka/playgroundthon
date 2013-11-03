@@ -96,7 +96,7 @@ function mockLoad()
 			table.insert(room.internal.state.users, {
 				id = v.id,
 				name = v.name,
-				wallet = 100
+				wallet = 10000
 			})
 		end
 		room.internal.state.boss.hp = 9999
@@ -104,6 +104,41 @@ function mockLoad()
 		return {}
 	end
 
+	mock.addUnit = function(roomId, ownerId, kind)
+		local room = mock.getRoomInfo(roomId)
+		-- {"atk":33,"unitId":1111,"hp":100,"ownerId":111,"x":1,"z":3,"kind":1,"cost":100,"y":2}
+		local unit = {
+			unitId = rand(),
+			ownerId = ownerId,
+			kind = kind,
+			x = math.random(100),
+			y = math.random(100),
+			z = math.random(100),
+			hp = math.random(100),
+			atk = math.random(100),
+			cost = math.random(100)
+		}
+		local user = nil
+		for k, v in pairs(room.internal.state.users) do
+			if v.id == ownerId and unit.cost <= v.wallet then
+				v.wallet = v.wallet - unit.cost
+				table.insert(room.internal.state.units, unit)
+			end
+		end
+		return room.internal.state
+	end
+
+	mock.getStageInfo = function(roomId)
+		local room = mock.getRoomInfo(roomId)
+		return room.internal.state
+	end
+
+	mock.refresh = function(roomId)
+		local room = mock.getRoomInfo(roomId)
+		for k, v in pairs(room.internal.state.users) do
+			v.wallet = v.wallet + 10
+		end
+	end
 end
 mockLoad()
 _G["mockLoad"] = nil
