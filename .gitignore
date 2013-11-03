@@ -44,3 +44,5 @@ __MACOSX/
 .publish
 attack-on-deadline/.publish
 attack-on-deadline/.working
+
+xcuserdata/
