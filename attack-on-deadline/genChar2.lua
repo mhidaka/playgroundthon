@@ -37,6 +37,7 @@ function execute_char2(pTask, deltaT, key)
 	TASK_setProperty(tblCHAR2[key].image, prop)
 	if prop.x > 768 then
 		
+		tblBOSS1["boss1"].status = 1
 		_BossHP = _BossHP - tblCHAR2[key].atk
 		
 		-- Kill generic task in this sample

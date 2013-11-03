@@ -9,6 +9,7 @@
 
 include("asset://Voice.lua")
 include("asset://genChar2.lua")
+include("asset://genBoss1.lua")
 
 _growupInterval = 20
 _growupCounter = 0
@@ -192,11 +193,14 @@ function born_boss(index,x,y)
 		"asset://assets/images/boss01.png.imag",
 		"asset://assets/images/unit05.png.imag",
 	}
-	pBossItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
-									6000,							-- arg[2]:		表示プライオリティ
-									x, y,							-- arg[3,4]:	表示位置
-									fileNames[index]	-- arg[5]:		表示assetのパス
-								)
 	
+--	pBossItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
+--									6000,							-- arg[2]:		表示プライオリティ
+--									x, y,							-- arg[3,4]:	表示位置
+--									fileNames[index]	-- arg[5]:		表示assetのパス
+--								)
+	
+	initBoss1("boss1",index,x,y,fileNames[index])
+
 	TASK_StageOnly(pBossItem)
 end
