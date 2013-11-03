@@ -1,4 +1,8 @@
+include("asset://api.lua")
+
 function setup()
+
+	shinchoku.api.fetchRooms()
 
 	local x = 100
 	local y = 100
