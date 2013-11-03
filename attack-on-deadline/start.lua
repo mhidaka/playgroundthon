@@ -1,4 +1,7 @@
 function setup()
+	if not rootTbl then
+		rootTbl = {}
+	end
 end
 
 function execute(deltaT)
