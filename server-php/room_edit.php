@@ -154,7 +154,8 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 
 	// act:join_room
 	function room_status() {
-		
+		$roomId = $this->pPost['roomId']
+		$userId = $this->pPost['userId']
 	}
 
 	function parseInputData() {
