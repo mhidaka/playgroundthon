@@ -10,4 +10,5 @@ if [ $ISERROR == 1 ] ; then
     exit
 fi
 
-mono $KLB_PLAYGROUND_HOME/Tools/Toboggan/KLBToolHost.exe --verbose --clean --publish --force --all-profiles --directory attack-on-deadline
+cd attack-on-deadline
+mono $KLB_PLAYGROUND_HOME/Tools/Toboggan/KLBToolHost.exe --verbose --clean --publish --force --all-profiles --directory `pwd`
