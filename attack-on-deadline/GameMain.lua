@@ -175,7 +175,7 @@ function born_unit(index,x,y)
 	local cost = index * 3
 	if _Money > cost then
 		_Money = _Money - cost		-- dec cost
-		initChar2(tostring(ObjCounter),x,y+48,fileNames[index])
+		initChar2(tostring(ObjCounter),index,x,y+48,fileNames[index])
 	
 		ObjCounter = ObjCounter + 1
 

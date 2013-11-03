@@ -10,7 +10,7 @@ _BossHP = 530000
 _Money  = 0 
 
 
-function initChar2(key, x, y, asset)
+function initChar2(key, index, x, y, asset)
 	local tbl = {}
 	
 	-- add execute & die method
@@ -19,6 +19,8 @@ function initChar2(key, x, y, asset)
 	-- set Char status
 	tbl.x = x
 	tbl.y = y
+	tbl.atk   = index ^ 2
+	tbl.speed = 1 - (index * 0.1)
 	tbl.asset = asset	--filename
 	
 	-- CAN PASS pGenTask as parent, but pGenTask has not graphic node : nodes are attached to ROOT.
@@ -31,9 +33,12 @@ end
 
 function execute_char2(pTask, deltaT, key)
 	prop = TASK_getProperty(tblCHAR2[key].image)
-	prop.x = prop.x + 1		-- Char1 と違うのは、y方向動作だということ。
+	prop.x = prop.x + tblCHAR2[key].speed
 	TASK_setProperty(tblCHAR2[key].image, prop)
 	if prop.x > 768 then
+		
+		_BossHP = _BossHP - tblCHAR2[key].atk
+		
 		-- Kill generic task in this sample
 		TASK_kill(pTask)
 		
@@ -42,8 +47,6 @@ function execute_char2(pTask, deltaT, key)
 		-- => Need to kill in execute.
 		TASK_kill(tblCHAR2[key].image)
 		countCHAR2 = countCHAR2 - 1
-		
-		_BossHP = _BossHP - 1
 	end
 end
 
