@@ -55,6 +55,10 @@ function setup()
 	
 	Voice_Open()
 	
+	bgm = SND_Open("asset://assets/musics/uchuusensou", true)
+	SND_Play(bgm)
+	SND_Volume(bgm,0.4)
+
 	TASK_StageOnly(oSceneLabel)
 	TASK_StageOnly(pObjCount)
 	TASK_StageOnly(pForm)
