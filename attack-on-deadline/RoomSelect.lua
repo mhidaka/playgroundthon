@@ -78,7 +78,7 @@ end
 
 function onRoom1Button()
 	syslog('----- RoomSelect.onRoom1Button() -----')
-	-- sysLoad("asset://")
+	sysLoad("asset://RoomConfirm.lua")
 end
 
 
