@@ -19,6 +19,8 @@ function apiLoad()
 		return "http://54.238.127.127" .. path
 	end
 
+	local timeout = 30000
+
 	-- 使い方
 	-- api.login(userName, callback) callback は Function
 	api.login = function (userName, callback)
@@ -37,7 +39,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
@@ -68,7 +70,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
@@ -105,7 +107,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
@@ -142,7 +144,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
@@ -172,7 +174,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
@@ -203,7 +205,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/room.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
@@ -231,7 +233,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/stage.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
@@ -267,7 +269,7 @@ function apiLoad()
 
 		if not api.debug then
 			local pHTTP = HTTP_API(callbackName)
-			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			sysCommand(pHTTP, NETAPI_SEND, buildUrl("/stage.php"), nil, json, timeout)
 			return pHTTP
 		else
 			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {

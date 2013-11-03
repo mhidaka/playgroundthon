@@ -4,7 +4,7 @@ function setup()
 	local callback = function (connectionID, message, status, bodyPayload)
 		syslog("[API] " .. CONV_Lua2Json(bodyPayload))
 	end
-	shinchoku.api.debug = true -- 実際にHTTP通信せずモックを返す
+	-- shinchoku.api.debug = true -- 実際にHTTP通信せずモックを返す
 
 	shinchoku.api.login("Mr.shinchoku", callback)
 
