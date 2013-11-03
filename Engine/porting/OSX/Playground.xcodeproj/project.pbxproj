@@ -295,6 +295,7 @@
 		AB417F771825F2110091D361 /* SimpleItem.lua in Resources */ = {isa = PBXBuildFile; fileRef = AB417F741825F2110091D361 /* SimpleItem.lua */; };
 		AB417F781825F2110091D361 /* start.lua in Resources */ = {isa = PBXBuildFile; fileRef = AB417F751825F2110091D361 /* start.lua */; };
 		AB417F791825F2110091D361 /* textureBoat.texb in Resources */ = {isa = PBXBuildFile; fileRef = AB417F761825F2110091D361 /* textureBoat.texb */; };
+		AB417F7B1825F50C0091D361 /* api.lua in Resources */ = {isa = PBXBuildFile; fileRef = AB417F7A1825F50C0091D361 /* api.lua */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -904,6 +905,7 @@
 		AB417F741825F2110091D361 /* SimpleItem.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleItem.lua; path = "../../../attack-on-deadline/.publish/iphone/SimpleItem.lua"; sourceTree = "<group>"; };
 		AB417F751825F2110091D361 /* start.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.lua; path = "../../../attack-on-deadline/.publish/iphone/start.lua"; sourceTree = "<group>"; };
 		AB417F761825F2110091D361 /* textureBoat.texb */ = {isa = PBXFileReference; lastKnownFileType = file; name = textureBoat.texb; path = "../../../attack-on-deadline/.publish/iphone/textureBoat.texb"; sourceTree = "<group>"; };
+		AB417F7A1825F50C0091D361 /* api.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = api.lua; path = "../../../attack-on-deadline/.publish/iphone/api.lua"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1011,6 +1013,7 @@
 		327C0BA6179A39A9007B7F42 /* ProjectResources */ = {
 			isa = PBXGroup;
 			children = (
+				AB417F7A1825F50C0091D361 /* api.lua */,
 				AB417F741825F2110091D361 /* SimpleItem.lua */,
 				AB417F751825F2110091D361 /* start.lua */,
 				AB417F761825F2110091D361 /* textureBoat.texb */,
@@ -2061,6 +2064,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32F55EB1179CFA32003807CE /* character.fsh in Resources */,
+				AB417F7B1825F50C0091D361 /* api.lua in Resources */,
 				32F55EB2179CFA32003807CE /* character.vsh in Resources */,
 				AB417F771825F2110091D361 /* SimpleItem.lua in Resources */,
 				32F55EB3179CFA32003807CE /* reflect.fsh in Resources */,
