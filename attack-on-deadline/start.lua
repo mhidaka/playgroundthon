@@ -10,7 +10,8 @@ end
 
 function execute(deltaT)
 	--sysLoad("asset://SimpleItem.lua")
-	sysLoad("asset://Login.lua")
+	--sysLoad("asset://Login.lua")
+	sysLoad("asset://GameMain.lua")
 end
 
 function leave()
