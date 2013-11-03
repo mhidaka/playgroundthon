@@ -34,7 +34,7 @@ function execute(deltaT)
 	end
 
 	-- ここには通信成功 (status == 2)でしかこないはず
-	status == 0 -- 通信終わってるはずだから元に戻しておくよ
+	status = 0 -- 通信終わってるはずだから元に戻しておくよ
 
 	-- TODO: ルーム一覧表示を更新する
 end
