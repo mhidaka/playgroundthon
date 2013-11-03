@@ -75,3 +75,19 @@ end
 -- TODO: エラー処理を書く
 function networkError()
 end
+
+function onRoom1Button()
+	syslog('----- RoomSelect.onRoom1Button() -----')
+	-- sysLoad("asset://")
+end
+
+
+function onRoom2Button()
+	syslog('----- RoomSelect.onRoom2Button() -----')
+	-- sysLoad("asset://")
+end
+
+function onRoom3Button()
+	syslog('----- RoomSelect.onRoom3Button() -----')
+	-- sysLoad("asset://")
+end
