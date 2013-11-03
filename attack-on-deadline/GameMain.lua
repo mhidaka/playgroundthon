@@ -37,6 +37,15 @@ function setup()
 							32,				-- <font size>, 
 							"0"	-- "<text string>"
 						)
+	pObjCount2 = UI_Label 	(
+							nil, 			-- <parent pointer>, 
+							7000, 			-- <order>, 
+							64,300,		-- <x>, <y>,
+                            0xFF, 0x000000,	-- <alpha>, <rgb>, 
+							"MTLmr3m",	-- "<font name>",
+							32,				-- <font size>, 
+							"0"	-- "<text string>"
+						)
 	
 	born_boss(1,700,160)
 						
@@ -67,6 +76,8 @@ end
 function execute(deltaT)
 	local numString = tostring( ObjCounter )
 	sysCommand( pObjCount, UI_LABEL_SET_TEXT, numString )
+	numString = tostring( countCHAR2 )
+	sysCommand( pObjCount2, UI_LABEL_SET_TEXT, numString )
 end
 
 function leave()
@@ -121,12 +132,14 @@ function born_unit(index,x,y)
 		"asset://assets/images/unit05.png.imag",
 	}
 --	local filename[] = "asset://assets/images/unit01.png.imag"
-	pUnitItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
-									7000,							-- arg[2]:		表示プライオリティ
-									x+(ObjCounter*48), y,							-- arg[3,4]:	表示位置
-									fileNames[index]	-- arg[5]:		表示assetのパス
-								)
+
+--	pUnitItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
+--									7000,							-- arg[2]:		表示プライオリティ
+--									x+(ObjCounter*48), y,							-- arg[3,4]:	表示位置
+--									fileNames[index]	-- arg[5]:		表示assetのパス
+--								)
 	
+	-- move objects
 	initChar2(tostring(ObjCounter),x,y+100,fileNames[index])
 	
 	ObjCounter = ObjCounter + 1

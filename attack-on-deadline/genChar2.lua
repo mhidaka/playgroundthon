@@ -4,6 +4,8 @@
 
 tblCHAR2 = {}
 
+countCHAR2 = 0
+
 function initChar2(key, x, y, asset)
 	local tbl = {}
 	
@@ -19,6 +21,8 @@ function initChar2(key, x, y, asset)
 	tbl.image = UI_SimpleItem(pGenTask, 6000, x, y, asset)
 
 	tblCHAR2[key] = tbl
+	
+	countCHAR2 = countCHAR2 + 1
 end
 
 function execute_char2(pTask, deltaT, key)
@@ -33,6 +37,7 @@ function execute_char2(pTask, deltaT, key)
 		-- we need to kill here, can NOT do it in die_char2.
 		-- => Need to kill in execute.
 		TASK_kill(tblCHAR2[key].image)
+		countCHAR2 = countCHAR2 - 1
 	end
 end
 
