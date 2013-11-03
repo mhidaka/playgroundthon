@@ -16,6 +16,35 @@ function apiLoad()
 	end
 
 	-- 使い方
+	-- api.login(userName, callback) callback は Function
+	api.login = function (userName, callback)
+		syslog("[API] called login")
+
+		local json = CONV_Lua2Json({userName = userName})
+		syslog("[API] " .. json)
+
+		local timestamp = ENG_getNanoTime()
+		local callbackName = "SHINCHOKU_CALLBACK_login_" .. timestamp
+		_G[callbackName] = function(connectionID, message, status, bodyPayload)
+			syslog("callback is coming! " .. callbackName)
+			_G[callbackName] = nil
+			callback(connectionID, message, status, bodyPayload)
+		end
+
+		if not api.debug then
+			local pHTTP = HTTP_API(callbackName)
+			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			return pHTTP
+		else
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
+				userId = 111,
+				userName = "Mr.shinchoku"
+			})
+			return 0
+		end
+	end
+
+	-- 使い方
 	-- api.fetchRooms(callback) callback は Function
 	api.fetchRooms = function (callback)
 		syslog("[API] called fetchRooms")
@@ -52,6 +81,8 @@ function apiLoad()
 		end
 	end
 
+	-- 使い方
+	-- api.fetchRoomInfo(roomId, callback) callback は Function
 	api.fetchRoomInfo = function (roomId, callback) 
 		syslog("[API] called fetchRoomInfo")
 

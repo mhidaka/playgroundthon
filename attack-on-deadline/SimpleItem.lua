@@ -6,6 +6,9 @@ function setup()
 		syslog("[API] " .. CONV_Lua2Json(bodyPayload))
 	end
 	shinchoku.api.debug = true -- 実際にHTTP通信せずモックを返す
+
+	shinchoku.api.login("Mr.shinchoku", callback)
+
 	shinchoku.api.fetchRooms(callback)
 
 	shinchoku.api.fetchRoomInfo(1, callback)
