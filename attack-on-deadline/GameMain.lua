@@ -35,6 +35,7 @@ function setup()
 							"0"	-- "<text string>"
 						)
 	
+	born_boss(1,700,200)
 						
 	local x = 0
 	local y = 0
@@ -63,31 +64,42 @@ function leave()
 	TASK_StageClear()
 end
 
-function button1_click()
+function button1_click(name,type,param)
 	syslog('----- Form.button1_click() -----')
-	born_unit(1,200,200)
+	if type == 3 then
+		born_unit(1,200,200)
+	end
 end
 
-function button2_click()
+function button2_click(name,type,param)
 	syslog('----- Form.button2_click() -----')
-	born_unit(2,200,200)
+	if type == 3 then
+		born_unit(2,200,200)
+	end
 end
 
-function button3_click()
+function button3_click(name,type,param)
 	syslog('----- Form.button3_click() -----')
-	born_unit(3,200,200)
+	if type == 3 then
+		born_unit(3,200,200)
+	end
 end
 
-function button4_click()
+function button4_click(name,type,param)
 	syslog('----- Form.button4_click() -----')
-	born_unit(4,200,200)
+	if type == 3 then
+		born_unit(4,200,200)
+	end
 end
 
-function button5_click()
+function button5_click(name,type,param)
 	syslog('----- Form.button5_click() -----')
-	born_unit(5,200,200)
+	if type == 3 then
+		born_unit(5,200,200)
+	end
 end
 
+-- born unit's 
 function born_unit(index,x,y)
 	local fileNames ={
 		"asset://assets/images/unit01.png.imag",
@@ -106,4 +118,19 @@ function born_unit(index,x,y)
 	ObjCounter = ObjCounter + 1
 	
 	TASK_StageOnly(pUnitItem)
+end
+
+-- born boss
+function born_boss(index,x,y)
+	local fileNames ={
+		"asset://assets/images/unit05.png.imag",
+		"asset://assets/images/boss01.png.imag",
+	}
+	pBossItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ
+									6000,							-- arg[2]:		表示プライオリティ
+									x, y,							-- arg[3,4]:	表示位置
+									fileNames[index]	-- arg[5]:		表示assetのパス
+								)
+	
+	TASK_StageOnly(pBossItem)
 end
