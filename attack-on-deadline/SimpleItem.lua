@@ -1,23 +1,43 @@
 
 function setup()
 
-	local callback = function (connectionID, message, status, bodyPayload)
+	-- shinchoku.api.debug = true -- 実際にHTTP通信せずモックを返す
+
+	shinchoku.api.login("Mr.shinchoku", function (connectionID, message, status, bodyPayload)
 		syslog("[API] " .. CONV_Lua2Json(bodyPayload))
-	end
-	shinchoku.api.debug = true -- 実際にHTTP通信せずモックを返す
+		local userId = bodyPayload.id
 
-	shinchoku.api.login("Mr.shinchoku", callback)
+		shinchoku.api.fetchRooms(function (connectionID, message, status, bodyPayload)
+			syslog("[API] " .. CONV_Lua2Json(bodyPayload))
+			local rooms = bodyPayload.rooms
+			local room = rooms[1]
 
-	shinchoku.api.fetchRooms(callback)
+			shinchoku.api.fetchRoomInfo(room.id, function (connectionID, message, status, bodyPayload)
+				syslog("[API] " .. CONV_Lua2Json(bodyPayload))
 
-	shinchoku.api.fetchRoomInfo(1, callback)
+				shinchoku.api.joinRoom(room.id, function (connectionID, message, status, bodyPayload)
+					syslog("[API] " .. CONV_Lua2Json(bodyPayload))
+				end)
+			end)
 
-	shinchoku.api.createRoom(callback)
-	shinchoku.api.joinRoom(1, callback)
-	shinchoku.api.engageStart(1, callback)
+			shinchoku.api.createRoom(function (connectionID, message, status, bodyPayload)
+				syslog("[API] " .. CONV_Lua2Json(bodyPayload))
+				local roomId = bodyPayload.id
 
-	shinchoku.api.game.addUnit(1, callback)
-	shinchoku.api.game.fetchStageInfo(callback)
+				shinchoku.api.engageStart(roomId, function (connectionID, message, status, bodyPayload)
+					syslog("[API] " .. CONV_Lua2Json(bodyPayload))
+
+					local kind = 1
+					shinchoku.api.game.addUnit(kind, function (connectionID, message, status, bodyPayload)
+						syslog("[API] " .. CONV_Lua2Json(bodyPayload))
+					end)
+					shinchoku.api.game.fetchStageInfo(function (connectionID, message, status, bodyPayload)
+						syslog("[API] " .. CONV_Lua2Json(bodyPayload))
+					end)
+				end)
+			end)
+		end)
+	end)
 
 	local x = 100
 	local y = 100
