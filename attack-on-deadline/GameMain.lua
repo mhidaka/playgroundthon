@@ -10,6 +10,7 @@
 include("asset://Voice.lua")
 include("asset://genChar2.lua")
 
+_growupInterval = 20
 _growupCounter = 0
 
 function setup()
@@ -95,7 +96,7 @@ end
 
 function execute(deltaT)
 	_growupCounter = _growupCounter + 1
-	if _growupCounter > 60 then
+	if _growupCounter > _growupInterval then
 		_Money = _Money + 1
 		_growupCounter = 0
 	end
@@ -173,7 +174,7 @@ function born_unit(index,x,y)
 	
 	-- move objects
 	local cost = index * 3
-	if _Money > cost then
+	if _Money >= cost then
 		_Money = _Money - cost		-- dec cost
 		initChar2(tostring(ObjCounter),index,x,y+48,fileNames[index])
 	
