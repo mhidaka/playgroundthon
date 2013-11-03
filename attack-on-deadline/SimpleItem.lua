@@ -8,6 +8,8 @@ function setup()
 	shinchoku.api.debug = true -- 実際にHTTP通信せずモックを返す
 	shinchoku.api.fetchRooms(callback)
 
+	shinchoku.api.fetchRoomInfo(1, callback)
+
 	local x = 100
 	local y = 100
 	pSimpleItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ

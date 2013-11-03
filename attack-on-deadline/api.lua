@@ -51,6 +51,41 @@ function apiLoad()
 			return 0
 		end
 	end
+
+	api.fetchRoomInfo = function (roomId, callback) 
+		syslog("[API] called fetchRoomInfo")
+
+		local json = CONV_Lua2Json({act = "room_status", id = 1})
+		syslog("[API] " .. json)
+
+		local timestamp = ENG_getNanoTime()
+		local callbackName = "SHINCHOKU_CALLBACK_fetchRoomInfo_" .. timestamp
+		_G[callbackName] = function(connectionID, message, status, bodyPayload)
+			syslog("callback is coming! " .. callbackName)
+			_G[callbackName] = nil
+			callback(connectionID, message, status, bodyPayload)
+		end
+
+		if not api.debug then
+			local pHTTP = HTTP_API(callbackName)
+			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			return pHTTP
+		else
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
+				users = {
+					{
+						id = 111,
+						name = "vvakame"
+					},
+					{
+						id = 2222,
+						name = "mhidaka"
+					}
+				}
+			})
+			return 0
+		end
+	end
 end
 apiLoad()
 _G["apiLoad"] = nil
