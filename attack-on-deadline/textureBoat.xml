@@ -4,7 +4,7 @@
     <Version>0.1.0</Version>
     <ProjectFile>textureBoat.xml</ProjectFile>
     <ProjectFileRelativeDir />
-    <SaveDate>2013-11-03T17:00:14</SaveDate>
+    <SaveDate>2013-11-03T17:32:22</SaveDate>
     <EditState>true</EditState>
     <ContainerScale>1</ContainerScale>
     <ContainerSnap>8</ContainerSnap>
@@ -118,84 +118,6 @@
     </TextureModel>
     <TextureModel>
       <Pos>
-        <X>16</X>
-        <Y>256</Y>
-      </Pos>
-      <Id>0</Id>
-      <Name>button03_room1.png</Name>
-      <IsFlipX>false</IsFlipX>
-      <IsFlipY>false</IsFlipY>
-      <IsSwitchXY>false</IsSwitchXY>
-      <ImgPathName>assets/images/button03_room1.png</ImgPathName>
-      <ZOrder>0</ZOrder>
-    </TextureModel>
-    <TextureModel>
-      <Pos>
-        <X>16</X>
-        <Y>360</Y>
-      </Pos>
-      <Id>0</Id>
-      <Name>button03_room1_select.png</Name>
-      <IsFlipX>false</IsFlipX>
-      <IsFlipY>false</IsFlipY>
-      <IsSwitchXY>false</IsSwitchXY>
-      <ImgPathName>assets/images/button03_room1_select.png</ImgPathName>
-      <ZOrder>0</ZOrder>
-    </TextureModel>
-    <TextureModel>
-      <Pos>
-        <X>16</X>
-        <Y>464</Y>
-      </Pos>
-      <Id>0</Id>
-      <Name>button04_room2.png</Name>
-      <IsFlipX>false</IsFlipX>
-      <IsFlipY>false</IsFlipY>
-      <IsSwitchXY>false</IsSwitchXY>
-      <ImgPathName>assets/images/button04_room2.png</ImgPathName>
-      <ZOrder>0</ZOrder>
-    </TextureModel>
-    <TextureModel>
-      <Pos>
-        <X>16</X>
-        <Y>568</Y>
-      </Pos>
-      <Id>0</Id>
-      <Name>button04_room2_select.png</Name>
-      <IsFlipX>false</IsFlipX>
-      <IsFlipY>false</IsFlipY>
-      <IsSwitchXY>false</IsSwitchXY>
-      <ImgPathName>assets/images/button04_room2_select.png</ImgPathName>
-      <ZOrder>0</ZOrder>
-    </TextureModel>
-    <TextureModel>
-      <Pos>
-        <X>16</X>
-        <Y>672</Y>
-      </Pos>
-      <Id>0</Id>
-      <Name>button04_room3.png</Name>
-      <IsFlipX>false</IsFlipX>
-      <IsFlipY>false</IsFlipY>
-      <IsSwitchXY>false</IsSwitchXY>
-      <ImgPathName>assets/images/button04_room3.png</ImgPathName>
-      <ZOrder>0</ZOrder>
-    </TextureModel>
-    <TextureModel>
-      <Pos>
-        <X>16</X>
-        <Y>776</Y>
-      </Pos>
-      <Id>0</Id>
-      <Name>button04_room3_select.png</Name>
-      <IsFlipX>false</IsFlipX>
-      <IsFlipY>false</IsFlipY>
-      <IsSwitchXY>false</IsSwitchXY>
-      <ImgPathName>assets/images/button04_room3_select.png</ImgPathName>
-      <ZOrder>0</ZOrder>
-    </TextureModel>
-    <TextureModel>
-      <Pos>
         <X>208</X>
         <Y>200</Y>
       </Pos>
@@ -270,6 +192,58 @@
       <IsFlipY>false</IsFlipY>
       <IsSwitchXY>false</IsSwitchXY>
       <ImgPathName>assets/images/unit05.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>400</X>
+        <Y>200</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>button05_new.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/button05_new.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>8</X>
+        <Y>256</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>button.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/button.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>8</X>
+        <Y>360</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>button_select.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/button_select.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>8</X>
+        <Y>464</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>button_disable.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/images/button_disable.png</ImgPathName>
       <ZOrder>0</ZOrder>
     </TextureModel>
   </ArrayOfTextureModel>
