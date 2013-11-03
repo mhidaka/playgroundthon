@@ -150,6 +150,36 @@ function apiLoad()
 			return 0
 		end
 	end
+
+	-- 使い方
+	-- api.joinRoom(roomId, callback) callback は Function userIdは内部で持っているので渡さなくて良い
+	api.joinRoom = function (roomId, callback) 
+		syslog("[API] called joinRoom")
+
+		local json = CONV_Lua2Json({roomId = roomId, userId = userInfo.userId})
+		syslog("[API] " .. json)
+
+		local timestamp = ENG_getNanoTime()
+		local callbackName = "SHINCHOKU_CALLBACK_createRoom_" .. timestamp
+		_G[callbackName] = function(connectionID, message, status, bodyPayload)
+			syslog("callback is coming! " .. callbackName)
+			_G[callbackName] = nil
+			callback(connectionID, message, status, bodyPayload)
+		end
+
+		if not api.debug then
+			local pHTTP = HTTP_API(callbackName)
+			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			return pHTTP
+		else
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
+				roomId = 222,
+				ownerId = 2,
+				users = {{userId = 8, userName = "Boss"}, userInfo}
+			})
+			return 0
+		end
+	end
 end
 apiLoad()
 _G["apiLoad"] = nil

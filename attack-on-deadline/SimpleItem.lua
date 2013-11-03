@@ -14,6 +14,7 @@ function setup()
 	shinchoku.api.fetchRoomInfo(1, callback)
 
 	shinchoku.api.createRoom(callback)
+	shinchoku.api.joinRoom(1, callback)
 
 	local x = 100
 	local y = 100
