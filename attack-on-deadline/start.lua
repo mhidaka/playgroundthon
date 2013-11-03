@@ -1,4 +1,4 @@
-include("asset://api.lua")
+include("asset://Api.lua")
 
 shinchoku.api.debug = true
 
@@ -9,7 +9,7 @@ function setup()
 end
 
 function execute(deltaT)
---	sysLoad("asset://SimpleItem.lua")
+	--sysLoad("asset://SimpleItem.lua")
 	sysLoad("asset://Login.lua")
 end
 
