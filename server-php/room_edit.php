@@ -41,7 +41,7 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 	}
 	
 	function get_room_list() {
-		$room_array = array();
+		$room_list = array();
 		$open_dir = opendir($this->room_dir);
 		while(false !== ($file_name = readdir($open_dir))){
 	        if ($file_name != "." && $file_name != "..") {
@@ -55,16 +55,16 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 					    break;
 				    }
 				}
-				$room_array[] = $room_info;
+				$room_list[] = $room_info;
 	        }
 		}
-		return $room_array;
+		return $room_list;
 	}
 	
 	function get_create_roomId($username) {
-		$room_array = $this->get_room_list();
+		$room_list = $this->get_room_list();
 		$roomid = 0;
-		foreach($room_array as $key => $val) {
+		foreach($room_list as $key => $val) {
 			if ($username == $val['owner']) {
 				return $val['id'];
 			}
@@ -141,21 +141,31 @@ class ShingekiAPI_Room extends ShingekiAPIBaseClass2 {
 				die("mkdir error.");
 			}
 		}
-		$room_array = $this->get_room_list();
+		$room_list = $this->get_room_list();
 		$output = array();
-		$output['rooms'] = $room_array;
+		$output['rooms'] = $room_list;
 		print_r(json_encode($output));
 	}
 	
 	// act:room_status
 	function room_status() {
+	
 		
 	}
 
 	// act:join_room
 	function room_status() {
-		$roomId = $this->pPost['roomId']
-		$userId = $this->pPost['userId']
+		$roomId = $this->pPost['roomId'];
+		$userId = $this->pPost['userId'];
+		$room_list = $this->get_room_list();
+		$room_match = false;
+		foreach($room_list as $key => $val) {
+			if ($roomId == $val['id']) {
+				$room_match = true;
+				break;
+			}
+		}
+		// **todo
 	}
 
 	function parseInputData() {
