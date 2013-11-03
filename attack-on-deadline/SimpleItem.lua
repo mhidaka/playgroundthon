@@ -15,6 +15,7 @@ function setup()
 
 	shinchoku.api.createRoom(callback)
 	shinchoku.api.joinRoom(1, callback)
+	shinchoku.api.engageStart(1, callback)
 
 	local x = 100
 	local y = 100

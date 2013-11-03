@@ -160,7 +160,7 @@ function apiLoad()
 		syslog("[API] " .. json)
 
 		local timestamp = ENG_getNanoTime()
-		local callbackName = "SHINCHOKU_CALLBACK_createRoom_" .. timestamp
+		local callbackName = "SHINCHOKU_CALLBACK_joinRoom_" .. timestamp
 		_G[callbackName] = function(connectionID, message, status, bodyPayload)
 			syslog("callback is coming! " .. callbackName)
 			_G[callbackName] = nil
@@ -176,6 +176,33 @@ function apiLoad()
 				roomId = 222,
 				ownerId = 2,
 				users = {{userId = 8, userName = "Boss"}, userInfo}
+			})
+			return 0
+		end
+	end
+
+	-- 使い方
+	-- api.engageStart(roomId, callback) callback は Function userIdは内部で持っているので渡さなくて良い
+	api.engageStart = function (roomId, callback)
+		syslog("[API] called engageStart")
+
+		local json = CONV_Lua2Json({act = "start", roomId = roomId, userId = userInfo.userId})
+		syslog("[API] " .. json)
+
+		local timestamp = ENG_getNanoTime()
+		local callbackName = "SHINCHOKU_CALLBACK_engageStart_" .. timestamp
+		_G[callbackName] = function(connectionID, message, status, bodyPayload)
+			syslog("callback is coming! " .. callbackName)
+			_G[callbackName] = nil
+			callback(connectionID, message, status, bodyPayload)
+		end
+
+		if not api.debug then
+			local pHTTP = HTTP_API(callbackName)
+			sysCommand(pHTTP, NETAPI_SEND, "https://dl.dropboxusercontent.com/u/6581286/sample.json", params, json, 30000)
+			return pHTTP
+		else
+			_G[callbackName](0, NETAPIMSG_REQUEST_SUCCESS, 200, {
 			})
 			return 0
 		end
